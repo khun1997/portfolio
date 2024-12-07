@@ -6,7 +6,6 @@ import Image from "next/image";
 import { DownloadMe } from "@/components/common/CommonButton";
 import { Stack, Theme, Typography, useMediaQuery } from "@mui/material";
 import ScrollToTop from "@/components/common/ScrollToTop";
-import AppLoading from "@/components/common/AppLoading";
 
 const HomeSection = () => {
   const sm = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
@@ -48,7 +47,6 @@ const HomeSection = () => {
           // border: "1px solid yellow",
           gap: "6px",
           padding: "0px 20px",
-
           // marginTop: "50px",
         }}
       >
@@ -61,6 +59,7 @@ const HomeSection = () => {
         >
           Khun Ye Aung
         </Typography>
+
         <Typography
           style={{
             textAlign: "center",
@@ -78,6 +77,7 @@ const HomeSection = () => {
         >
           Frontend Web Developer
         </Typography>
+
         <Typography
           sx={{
             textAlign: "center",
@@ -85,11 +85,12 @@ const HomeSection = () => {
             fontFamily: "Poppins, sans-serif",
           }}
         >
-          "As a passionate frontend web developer, with expertise in JavaScript,
-          ReactJs, NextJs, and modern web frameworks, I thrive on the challenges
-          of creating intuitive, responsive designs and building seamless user
-          experiences that drive engagement and innovation."
+          &quot;As a passionate frontend web developer, with expertise in
+          JavaScript, ReactJs, NextJs, and modern web frameworks, I thrive on
+          the challenges of creating intuitive, responsive designs and building
+          seamless user experiences that drive engagement and innovation.&quot;
         </Typography>
+
         <Stack sx={{ marginTop: "30px" }}>
           <DownloadMe name="Contact Me" />
         </Stack>
