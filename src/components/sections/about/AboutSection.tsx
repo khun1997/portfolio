@@ -1,10 +1,10 @@
 import { MainButton } from "@/components/common/CommonButton";
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography, Theme, useMediaQuery } from "@mui/material";
 import React from "react";
 
-type Props = {};
+const AboutSection = () => {
+  const sm = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
 
-const AboutSection = (props: Props) => {
   return (
     <Stack
       id="about"
@@ -17,11 +17,11 @@ const AboutSection = (props: Props) => {
         textAlign: "center",
       }}
     >
-      <Stack sx={{ maxWidth: "840px" }}>
+      <Stack sx={{ maxWidth: "840px", padding: "0px 20px" }}>
         <Stack>
           <Typography
             sx={{
-              fontSize: "45px",
+              fontSize: sm ? "35px" : "45px",
               fontWeight: "bold",
               fontFamily: "Poppins, sans-serif",
             }}
@@ -32,13 +32,12 @@ const AboutSection = (props: Props) => {
           <Typography
             style={{
               textAlign: "center",
-              fontSize: "14px",
+              fontSize: sm ? "12px" : "14px",
               fontWeight: "bold",
               backgroundImage:
                 "linear-gradient(to right, #4FC3F7 0%,#9bd8f5f0 50%, #ffffff 100%)",
               WebkitBackgroundClip: "text",
               color: "transparent",
-
               backgroundClip: "text",
               WebkitTextFillColor: "transparent",
               fontFamily: "Poppins, sans-serif",
@@ -48,13 +47,13 @@ const AboutSection = (props: Props) => {
           </Typography>
         </Stack>
 
-        <Stack sx={{ gap: "30px" }}>
+        <Stack sx={{ gap: sm ? "23px" : "30px" }}>
           <Typography
             sx={{
               textAlign: "center",
-              fontSize: "17px",
+              fontSize: sm ? "14px" : "17px",
               fontFamily: "Poppins, sans-serif",
-              marginTop: "40px",
+              marginTop: sm ? "30px" : "40px",
             }}
           >
             Hi there! I'm [Your Name], a data scientist specializing in data
@@ -67,7 +66,7 @@ const AboutSection = (props: Props) => {
           <Typography
             sx={{
               textAlign: "center",
-              fontSize: "17px",
+              fontSize: sm ? "14px" : "17px",
               fontFamily: "Poppins, sans-serif",
             }}
           >
@@ -81,7 +80,7 @@ const AboutSection = (props: Props) => {
           <Typography
             sx={{
               textAlign: "center",
-              fontSize: "17px",
+              fontSize: sm ? "14px" : "17px",
               fontFamily: "Poppins, sans-serif",
             }}
           >

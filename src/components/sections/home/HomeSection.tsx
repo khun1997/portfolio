@@ -2,26 +2,28 @@
 import React from "react";
 import HomeBg from "@/../public/home-bg.svg";
 import Profile from "@/../public/svg/profile.svg";
-
 import Image from "next/image";
 import { DownloadMe } from "@/components/common/CommonButton";
-import { Stack, Typography } from "@mui/material";
+import { Stack, Theme, Typography, useMediaQuery } from "@mui/material";
+import ScrollToTop from "@/components/common/ScrollToTop";
+import AppLoading from "@/components/common/AppLoading";
 
-type Props = {};
+const HomeSection = () => {
+  const sm = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const lg = useMediaQuery((theme: Theme) => theme.breakpoints.down("lg"));
 
-const HomeSection = (props: Props) => {
   return (
     <Stack
       id="home"
       style={{
-        width: "100%",
+        width: "100vw",
         height: "100vh",
-        position: "relative",
         display: "flex",
-        justifyContent: "space-evenly",
+        justifyContent: lg ? "center" : "space-evenly",
         alignItems: "center",
         flexDirection: "row",
-        gap: "70px",
+        gap: lg ? "0px" : "70px",
+        textAlign: "center",
       }}
     >
       <Image
@@ -32,25 +34,27 @@ const HomeSection = (props: Props) => {
           zIndex: "-10",
           top: "70%",
           left: "50%",
-          transform: "translate(-55%, -50%)",
+          transform: "translate(-50%, -50%)",
         }}
       />
 
       <Stack
         sx={{
-          width: "500px",
+          width: "700px",
           display: "flex",
-          // justifyContent: "space-between",
+          justifyContent: "space-between",
           alignItems: "center",
           flexDirection: "column",
           // border: "1px solid yellow",
           gap: "6px",
-          marginTop: "50px",
+          padding: "0px 20px",
+
+          // marginTop: "50px",
         }}
       >
         <Typography
           sx={{
-            fontSize: "63px",
+            fontSize: sm ? "35px" : "63px",
             fontWeight: "bold",
             fontFamily: "Poppins, sans-serif",
           }}
@@ -60,7 +64,7 @@ const HomeSection = (props: Props) => {
         <Typography
           style={{
             textAlign: "center",
-            fontSize: "26px",
+            fontSize: sm ? "17px" : "26px",
             fontWeight: "bold",
             backgroundImage:
               "linear-gradient(to right, #4FC3F7 0%,#9bd8f5f0 50%, #ffffff 100%)",
@@ -81,33 +85,37 @@ const HomeSection = (props: Props) => {
             fontFamily: "Poppins, sans-serif",
           }}
         >
-          As a passionate data scientist, with expertise in machine learning,
-          AI, and data analytics, I thrive on the challenges of exploring
-          complex data landscapes and uncovering meaningful patterns that drive
-          innovation
+          "As a passionate frontend web developer, with expertise in JavaScript,
+          ReactJs, NextJs, and modern web frameworks, I thrive on the challenges
+          of creating intuitive, responsive designs and building seamless user
+          experiences that drive engagement and innovation."
         </Typography>
         <Stack sx={{ marginTop: "30px" }}>
           <DownloadMe name="Contact Me" />
         </Stack>
       </Stack>
 
-      <Stack
-        sx={{
-          width: "332px",
-          height: "400px",
-          border: "1px solid #4FC3F7",
-        }}
-      >
-        <Image
-          src={Profile}
-          alt=""
-          style={{
-            width: "100%",
-            height: "100%",
-            zIndex: "-10",
+      {!lg && (
+        <Stack
+          sx={{
+            width: "342px",
+            height: "400px",
+            border: "1px solid #4FC3F7",
           }}
-        />
-      </Stack>
+        >
+          <Image
+            src={Profile}
+            alt=""
+            style={{
+              width: "100%",
+              height: "100%",
+              zIndex: "-10",
+            }}
+          />
+        </Stack>
+      )}
+
+      <ScrollToTop />
     </Stack>
   );
 };

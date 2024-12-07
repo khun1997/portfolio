@@ -1,12 +1,11 @@
+import { Stack } from "@mui/material";
 import React from "react";
 
-type Props = {};
-
-const SkillSection = (props: Props) => {
+const SkillSection = () => {
   return (
-    <div id="skills" style={{ width: "100vw", height: "100vh" }}>
+    <Stack id="skills" style={{ width: "100vw", height: "100vh" }}>
       SkillSection
-    </div>
+    </Stack>
   );
 };
 

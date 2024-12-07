@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
 import { NavContactMeButton } from "./CommonButton";
-import { Typography } from "@mui/material";
-
-type Props = {};
+import { Stack, Theme, Typography, useMediaQuery } from "@mui/material";
 
 export const MenuLinks = [
   {
@@ -28,60 +26,70 @@ export const MenuLinks = [
   },
 ];
 
-const Navbar = (props: Props) => {
+const Navbar = () => {
+  const md = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
+
   return (
-    <div
+    <Stack
       style={{
-        width: "1271px",
+        maxWidth: "100%",
+        width: "100%",
         height: "45px",
         display: "flex",
         justifyContent: "space-between",
         flexDirection: "row",
         alignItems: "center",
-        padding: "0px 10px",
         marginTop: "60px",
         position: "absolute",
         zIndex: "10",
-        // border: "1px solid red",
+        paddingLeft: md ? "120px" : "90px",
+        paddingRight: md ? "120px" : "90px",
       }}
     >
-      <div>
-        {" "}
-        <Typography sx={{ fontSize: "16px", fontWeight: "900" }}>
+      <Stack>
+        <Typography
+          sx={{
+            fontSize: "18px",
+            fontWeight: "900",
+            fontFamily: "Montserrat, sans-serif",
+          }}
+        >
           Khun1997
         </Typography>
-      </div>
-      <div
-        style={{
-          width: "541px",
-          height: "22px",
-          display: "flex",
-          justifyContent: "space-between",
-          flexDirection: "row",
-          alignItems: "center",
-          //   gap: "30px",
-          //   border: "1px solid yellow",
-        }}
-      >
-        {MenuLinks.map((link) => (
-          <a
-            href={link.href}
-            key={link.href}
-            style={{
-              fontFamily: "Montserrat, sans-serif",
-              textDecoration: "none",
-              fontSize: "16px",
-            }}
-            className="nav-link"
-          >
-            {link.label}
-          </a>
-        ))}
-      </div>
-      <div>
+      </Stack>
+
+      {!md && (
+        <Stack
+          style={{
+            width: "541px",
+            height: "22px",
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
+          {MenuLinks.map((link) => (
+            <a
+              href={link.href}
+              key={link.href}
+              style={{
+                fontFamily: "Montserrat, sans-serif",
+                textDecoration: "none",
+                fontSize: "16px",
+              }}
+              className="nav-link"
+            >
+              {link.label}
+            </a>
+          ))}
+        </Stack>
+      )}
+
+      <Stack sx={{ background: "transparent" }}>
         <NavContactMeButton name="Contact Me" />
-      </div>
-    </div>
+      </Stack>
+    </Stack>
   );
 };
 
