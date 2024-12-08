@@ -21,8 +21,8 @@ export const MenuLinks = [
     href: "#projects",
   },
   {
-    label: "Resume",
-    href: "#resume",
+    label: "Contact",
+    href: "#contact",
   },
 ];
 
