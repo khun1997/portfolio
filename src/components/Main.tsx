@@ -19,7 +19,7 @@ const Main = () => {
         maxWidth: "1280px",
       }}
     >
-      <Stack
+      {/* <Stack
         sx={{
           width: "100%",
           display: "flex",
@@ -31,9 +31,9 @@ const Main = () => {
         }}
       >
         {sm ? <Humberger /> : <Navbar />}
-      </Stack>
-      <HomeSection />
-      <AboutSection />
+      </Stack> */}
+      {/* <HomeSection />
+      <AboutSection /> */}
       <SkillSection />
       <ProjectSection />
       <Resume />
