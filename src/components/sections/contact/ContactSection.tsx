@@ -1,5 +1,13 @@
 import { MainButton } from "@/components/common/CommonButton";
-import { Stack, Typography, Theme, useMediaQuery } from "@mui/material";
+import PasswordTextField from "@/components/common/PasswordTextField";
+import {
+  Stack,
+  Typography,
+  Theme,
+  useMediaQuery,
+  TextField,
+} from "@mui/material";
+// import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import React from "react";
 
 const ContactSection = () => {
@@ -19,7 +27,14 @@ const ContactSection = () => {
         marginTop: md ? "100px" : "0px",
       }}
     >
-      <Stack sx={{ maxWidth: "840px", padding: "0px 20px" }}>
+      <Stack
+        sx={{
+          maxWidth: "696px",
+          height: "710px",
+          padding: "0px 20px",
+          border: "1px solid red",
+        }}
+      >
         <Stack>
           <Typography
             sx={{
@@ -49,12 +64,18 @@ const ContactSection = () => {
           </Typography>
         </Stack>
 
-        <Stack sx={{ gap: sm ? "23px" : "30px" }}></Stack>
+        <Stack
+          component="form"
+          // onSubmit={handleSubmit(onSubmit)}
+          flexGrow={1}
+          mb={5}
+          sx={{ gap: sm ? "23px" : "30px" }}
+        ></Stack>
       </Stack>
 
-      <Stack sx={{ marginTop: "40px" }}>
+      {/* <Stack sx={{ marginTop: "40px" }}>
         <MainButton name="Get in Touch" />
-      </Stack>
+      </Stack> */}
     </Stack>
   );
 };
