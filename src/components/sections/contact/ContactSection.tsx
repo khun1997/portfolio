@@ -37,49 +37,57 @@ const ContactSection = () => {
           border: "1px solid red",
         }}
       >
-        <Stack>
-          <Typography
-            sx={{
-              fontSize: sm ? "35px" : "45px",
-              fontWeight: "bold",
-              fontFamily: "Poppins, sans-serif",
-            }}
-          >
-            Get In Touch
-          </Typography>
-
-          <Typography
-            style={{
-              textAlign: "center",
-              fontSize: sm ? "12px" : "14px",
-              fontWeight: "bold",
-              backgroundImage:
-                "linear-gradient(to right, #4FC3F7 0%,#9bd8f5f0 50%, #ffffff 100%)",
-              WebkitBackgroundClip: "text",
-              color: "transparent",
-              backgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              fontFamily: "Poppins, sans-serif",
-            }}
-          >
-            Lets work together
-          </Typography>
-        </Stack>
         <Stack
-          component="form"
-          // onSubmit={handleSubmit(onSubmit)}
-          flexGrow={1}
-          mb={5}
-          sx={{ gap: sm ? "23px" : "30px" }}
+          sx={{
+            maxWidth: "696px",
+            height: "710px",
+            padding: "0px 20px",
+            border: "1px solid red",
+          }}
         >
+          <Stack>
+            <Typography
+              sx={{
+                fontSize: sm ? "35px" : "45px",
+                fontWeight: "bold",
+                fontFamily: "Poppins, sans-serif",
+              }}
+            >
+              Get In Touch
+            </Typography>
+
+            <Typography
+              style={{
+                textAlign: "center",
+                fontSize: sm ? "12px" : "14px",
+                fontWeight: "bold",
+                backgroundImage:
+                  "linear-gradient(to right, #4FC3F7 0%,#9bd8f5f0 50%, #ffffff 100%)",
+                WebkitBackgroundClip: "text",
+                color: "transparent",
+                backgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                fontFamily: "Poppins, sans-serif",
+              }}
+            >
+              Lets work together
+            </Typography>
+          </Stack>
           <Stack
-            component="fieldset"
-            // disabled={isLoading}
-            spacing={2}
-            alignItems="center"
-            sx={{ border: 0 }}
+            component="form"
+            // onSubmit={handleSubmit(onSubmit)}
+            flexGrow={1}
+            mb={5}
+            sx={{ gap: sm ? "23px" : "30px" }}
           >
-            {/* <Controller
+            <Stack
+              component="fieldset"
+              // disabled={isLoading}
+              spacing={2}
+              alignItems="center"
+              sx={{ border: 0 }}
+            >
+              {/* <Controller
               name="email"
               // control={control}
               defaultValue=""
@@ -115,7 +123,7 @@ const ContactSection = () => {
               )}
             /> */}
 
-            {/* <LoadingButton
+              {/* <LoadingButton
               disabled={!isValid}
               type="submit"
               variant="contained"
@@ -123,13 +131,15 @@ const ContactSection = () => {
             >
               အကောင့်ဝင်ရောက်မည်
             </LoadingButton> */}
+            </Stack>
           </Stack>
         </Stack>
-      </Stack>
 
+        {/* <Stack sx={{ marginTop: "40px" }}>
       {/* <Stack sx={{ marginTop: "40px" }}>
         <MainButton name="Get in Touch" />
       </Stack> */}
+      </Stack>
     </Stack>
   );
 };
