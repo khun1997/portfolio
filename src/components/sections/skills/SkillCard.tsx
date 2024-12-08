@@ -35,7 +35,7 @@ const SkillCard = ({ id, description, name, image }: Props) => {
           //   backgroundImage:
           //     "linear-gradient(to right, #4fc2f788 0%,#9bd9f5c7 50%, #ffffff 100%)",
           transform: "scale(1.03)", // Scale up slightly on hover
-          animation: "jump 0.5s ease-in-out", // Optional: Add custom animation
+          // animation: "jump 0.5s ease-in-out", // Optional: Add custom animation
           boxShadow: "0px 8px 16px rgba(98, 97, 97, 0.2)",
         },
       }}

@@ -8,18 +8,22 @@ import Navbar from "./common/Navbar";
 import Resume from "./sections/resume/ResumeSection";
 import { Stack, Theme, useMediaQuery } from "@mui/material";
 import Humberger from "./common/Humberger";
+import Footer from "./sections/footer/Footer";
 
 const Main = () => {
-  const sm = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  // const sm = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
   const md = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
 
   return (
     <Stack
       style={{
         maxWidth: "1280px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
-      {/* <Stack
+      <Stack
         sx={{
           width: "100%",
           display: "flex",
@@ -30,13 +34,14 @@ const Main = () => {
           paddingRight: md ? "120px" : "90px",
         }}
       >
-        {sm ? <Humberger /> : <Navbar />}
-      </Stack> */}
-      {/* <HomeSection />
-      <AboutSection /> */}
+        {md ? <Humberger /> : <Navbar />}
+      </Stack>
+      <HomeSection />
+      <AboutSection />
       <SkillSection />
       <ProjectSection />
       <Resume />
+      <Footer />
     </Stack>
   );
 };

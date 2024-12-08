@@ -4,17 +4,19 @@ import React from "react";
 
 const AboutSection = () => {
   const sm = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const md = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
 
   return (
     <Stack
       id="about"
       style={{
         width: "100%",
-        height: "100vh",
+        height: md ? "auto" : "100vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         textAlign: "center",
+        marginTop: md ? "100px" : "0px",
       }}
     >
       <Stack sx={{ maxWidth: "840px", padding: "0px 20px" }}>

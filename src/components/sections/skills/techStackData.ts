@@ -76,4 +76,13 @@ export const techStackData = [
     image: Typescript,
     type: "Framework",
   },
+  // {
+  //   id: 9,
+  //   name: "Typescript",
+  //   description:
+  //     "A distributed version control system for tracking changes in source code.",
+  //   rating: 4.8,
+  //   image: Typescript,
+  //   type: "Framework",
+  // },
 ];

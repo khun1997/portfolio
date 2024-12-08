@@ -9,6 +9,8 @@ import ScrollToTop from "@/components/common/ScrollToTop";
 
 const HomeSection = () => {
   const sm = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const md = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
+
   const lg = useMediaQuery((theme: Theme) => theme.breakpoints.down("lg"));
 
   return (
@@ -16,7 +18,9 @@ const HomeSection = () => {
       id="home"
       style={{
         width: "100vw",
-        height: "100vh",
+        height: lg ? "auto" : "100vh",
+        marginTop: md ? "0px" : lg ? "200px" : "initial",
+        border: md ? "1px solid red" : "1px solid yellow",
         display: "flex",
         justifyContent: lg ? "center" : "space-evenly",
         alignItems: "center",
