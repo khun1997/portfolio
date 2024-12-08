@@ -5,10 +5,10 @@ import AboutSection from "./sections/about/AboutSection";
 import SkillSection from "./sections/skills/SkillSection";
 import ProjectSection from "./sections/projects/ProjectSection";
 import Navbar from "./common/Navbar";
-import Resume from "./sections/resume/ResumeSection";
 import { Stack, Theme, useMediaQuery } from "@mui/material";
 import Humberger from "./common/Humberger";
 import Footer from "./sections/footer/Footer";
+import ContactSection from "./sections/contact/ContactSection";
 
 const Main = () => {
   // const sm = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
@@ -40,7 +40,7 @@ const Main = () => {
       <AboutSection />
       <SkillSection />
       <ProjectSection />
-      <Resume />
+      <ContactSection />
       <Footer />
     </Stack>
   );

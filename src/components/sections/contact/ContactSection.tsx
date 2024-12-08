@@ -1,21 +1,21 @@
 import { Stack, useMediaQuery, Theme } from "@mui/material";
 import React from "react";
 
-const Resume = () => {
+const ContactSection = () => {
   const sm = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
 
   return (
     <Stack
-      id="resume"
+      id="contactSection"
       style={{
         width: "100vw",
         height: sm ? "auto" : "100vh",
         marginTop: sm ? "100px" : "0px",
       }}
     >
-      Resumee
+      ContactSection
     </Stack>
   );
 };
 
-export default Resume;
+export default ContactSection;

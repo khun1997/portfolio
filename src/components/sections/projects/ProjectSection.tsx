@@ -28,6 +28,7 @@ const SkillSection = () => {
     setExpanded(!expanded);
   };
 
+  //need to go detail and github show
   return (
     <Stack
       id="projects"
