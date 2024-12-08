@@ -43,8 +43,8 @@ const SkillCard = ({ id, description, name, image }: Props) => {
       {image ? (
         <Stack
           sx={{
-            width: "50px",
-            height: "50px",
+            width: "52px",
+            height: "52px",
             backgroundImage:
               "linear-gradient(to right, #4fc2f788 0%,#9bd9f5c7 50%, #ffffff 100%)",
             display: "flex",

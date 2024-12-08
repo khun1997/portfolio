@@ -1,45 +1,50 @@
-import { Stack, Theme, Typography, useMediaQuery } from "@mui/material";
-import React from "react";
+"use client";
+import React, { useState } from "react";
+import { Stack, Typography, useMediaQuery, Theme } from "@mui/material";
 import SkillCard from "./SkillCard";
 import { techStackData } from "./techStackData";
+import SkillNavBar, { SkillType } from "./SkillNavBar";
+import { SkillNavButton } from "@/components/common/CommonButton";
 
 const SkillSection = () => {
   const sm = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+
+  const [selectedCategory, setSelectedCategory] = useState<SkillType>("All");
+  const [expanded, setExpanded] = useState(false);
+
+  const filteredTechStack = techStackData.filter((item) =>
+    selectedCategory === "All" ? true : item.type === selectedCategory
+  );
+
+  const itemsToDisplay = expanded
+    ? filteredTechStack
+    : filteredTechStack.slice(0, 6);
+
+  const showToggleButton = filteredTechStack.length > 6;
+
+  const handleToggle = () => {
+    setExpanded(!expanded);
+  };
 
   return (
     <Stack
       id="skills"
       sx={{
         width: "100%",
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
         padding: "20px 20px",
-        // border: "1px solid red",
       }}
     >
       <Stack
         sx={{
-          // width: "921px",
-          // height: "100vh",
           display: "flex",
-          // justifyContent: "center",
-          // alignItems: "center",
-          // textAlign: "center",
-          // border: "1px solid green",
           flexDirection: "column",
         }}
       >
         <Stack
           sx={{
-            width: "100%",
-            // height: "100vh",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            // textAlign: "center",
-            // border: "1px solid pink",
             flexDirection: "column",
           }}
         >
@@ -71,6 +76,14 @@ const SkillSection = () => {
           </Typography>
         </Stack>
 
+        <SkillNavBar
+          selectedCategory={selectedCategory}
+          onCategoryChange={(category: SkillType) => {
+            setSelectedCategory(category);
+            setExpanded(false);
+          }}
+        />
+
         <Stack
           sx={{
             width: "100%",
@@ -80,26 +93,36 @@ const SkillSection = () => {
             gap: sm ? "16px" : "24px",
             justifyContent: "center",
             alignItems: "center",
-            // border: "1px solid yellow",
             marginTop: "53px",
           }}
         >
-          {techStackData.map((data) => {
-            return (
-              <SkillCard
-                id={data.id}
-                key={data.id}
-                name={data.name}
-                description={data.description}
-                image={data.image}
-              />
-            );
-          })}
+          {itemsToDisplay.map((data) => (
+            <SkillCard
+              id={data.id}
+              key={data.id}
+              name={data.name}
+              description={data.description}
+              image={data.image}
+            />
+          ))}
         </Stack>
 
-        <Stack sx={{ marginTop: "40px" }}>
-          {/* <MainButton name="Download Me" /> */}
-        </Stack>
+        {showToggleButton && (
+          <Stack
+            sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: "20px",
+            }}
+          >
+            <SkillNavButton
+              name={expanded ? "Show Less" : "View More"}
+              onClick={handleToggle}
+            />
+          </Stack>
+        )}
       </Stack>
     </Stack>
   );

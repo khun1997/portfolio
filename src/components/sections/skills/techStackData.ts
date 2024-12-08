@@ -2,10 +2,10 @@ import Javascript from "@/../public/svg/tech/language/javascript.svg";
 import Reactjs from "@/../public/svg/tech/framework/reactjs.svg";
 import Astrojs from "@/../public/svg/tech/framework/astrojs.svg";
 import Nodejs from "@/../public/svg/tech/backend/nodejs.svg";
-import Expressjs from "@/../public/svg/tech/framework/expressjs.svg";
+import Postgresql from "@/../public/svg/tech/db/postgresql.svg";
 import Git from "@/../public/svg/tech/git.svg";
-// import Typescript from "@/../public/svg/tech/framework/typescript.svg";
-// import Nextjs from "@/../public/svg/tech/framework/nextjs.svg";
+import Typescript from "@/../public/svg/tech/framework/typescript.svg";
+import Nextjs from "@/../public/svg/tech/framework/nextjs.svg";
 
 export const techStackData = [
   {
@@ -14,6 +14,7 @@ export const techStackData = [
     description: "A JavaScript library for building user interfaces.",
     rating: 4.5,
     image: Javascript,
+    type: "Language",
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ export const techStackData = [
       "A React framework for server-side rendering and static site generation.",
     rating: 4.7,
     image: Reactjs,
+    type: "Framework",
   },
   {
     id: 3,
@@ -29,6 +31,7 @@ export const techStackData = [
     description: "A modern static site generator for building faster websites.",
     rating: 4.3,
     image: Astrojs,
+    type: "Framework",
   },
   {
     id: 4,
@@ -36,13 +39,15 @@ export const techStackData = [
     description: "A JavaScript runtime built on Chrome's V8 engine.",
     rating: 4.6,
     image: Nodejs,
+    type: "Language",
   },
   {
     id: 5,
-    name: "ExpressJs",
+    name: "Postgresql",
     description: "A minimal and flexible Node.js web application framework.",
     rating: 4.2,
-    image: Expressjs,
+    image: Postgresql,
+    type: "DataBase",
   },
   {
     id: 6,
@@ -51,21 +56,24 @@ export const techStackData = [
       "A distributed version control system for tracking changes in source code.",
     rating: 4.8,
     image: Git,
+    type: "UI",
   },
-  //   {
-  //     id: 7,
-  //     name: "Typescript",
-  //     description:
-  //       "A distributed version control system for tracking changes in source code.",
-  //     rating: 4.8,
-  //     image: Typescript,
-  //   },
-  //   {
-  //     id: 8,
-  //     name: "Nextjs",
-  //     description:
-  //       "A distributed version control system for tracking changes in source code.",
-  //     rating: 4.8,
-  //     image: Nextjs,
-  //   },
+  {
+    id: 7,
+    name: "Nextjs",
+    description:
+      "A distributed version control system for tracking changes in source code.",
+    rating: 4.8,
+    image: Nextjs,
+    type: "Framework",
+  },
+  {
+    id: 8,
+    name: "Typescript",
+    description:
+      "A distributed version control system for tracking changes in source code.",
+    rating: 4.8,
+    image: Typescript,
+    type: "Framework",
+  },
 ];
