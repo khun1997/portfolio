@@ -20,7 +20,7 @@ const ScrollToTop = () => {
         onClick={scrollToTop}
         sx={{
           position: "fixed",
-          bottom: sm ? 10 : 20,
+          bottom: 70,
           right: sm ? 10 : 20,
           zIndex: 1200,
           backgroundColor: "#4FC3F7",

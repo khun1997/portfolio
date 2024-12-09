@@ -38,6 +38,17 @@ const defaultTheme = createTheme({
         },
       },
     },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          // borderBottomWidth: 0.5,
+          // borderColor: "#DFDACE",
+          borderColor: "#787777",
+          // background: "red",
+          height: "0.1px",
+        },
+      },
+    },
   },
 });
 
