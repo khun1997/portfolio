@@ -66,7 +66,7 @@ const Footeer = () => {
 
   return (
     <Stack
-      id="footeer"
+      id="footer"
       style={{
         // width: lg ? "100%" : "1114px",
         width: "100%",

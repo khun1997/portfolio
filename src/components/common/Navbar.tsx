@@ -87,7 +87,9 @@ const Navbar = () => {
       )}
 
       <Stack sx={{ background: "transparent" }}>
-        <NavContactMeButton name="Contact Me" />
+        <a href="#footer">
+          <NavContactMeButton name="Contact Me" />
+        </a>
       </Stack>
     </Stack>
   );

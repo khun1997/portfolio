@@ -94,7 +94,9 @@ const HomeSection = () => {
         </Typography>
 
         <Stack sx={{ marginTop: "30px" }}>
-          <DownloadMe name="Contact Me" />
+          <a href="#footer">
+            <DownloadMe name="Contact Me" />
+          </a>
         </Stack>
       </Stack>
 
