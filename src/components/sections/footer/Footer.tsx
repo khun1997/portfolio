@@ -67,7 +67,7 @@ const Footeer = () => {
     <Stack
       id="footeer"
       style={{
-        width: "100vw",
+        width: "100%",
         height: md ? "auto" : "242px",
         marginTop: sm ? "100px" : "0px",
         display: "flex",
@@ -137,7 +137,7 @@ const Footeer = () => {
         </Button>
       </Stack>
 
-      <Divider sx={{ m: sm ? "30px 0px" : "40px 0px", width: "100%" }} />
+      <Divider sx={{ m: sm ? "30px 0px" : "40px 0px", width: "100vw" }} />
 
       <Stack
         sx={{
