@@ -141,12 +141,12 @@ const Footeer = () => {
         </Button>
       </Stack>
 
-      <Divider sx={{ m: sm ? "30px 0px" : "40px 0px", width: "100%" }} />
+      <Divider sx={{ m: sm ? "30px 0px" : "40px 0px", width: "85%" }} />
 
       <Stack
         sx={{
           // width: "100%",
-          width: lg ? "85%" : "1114px",
+          width: "85%",
           height: "30px",
           display: "flex",
           justifyContent: "space-between",
