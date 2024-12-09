@@ -76,7 +76,7 @@ const Footeer = () => {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        border: md ? "1px solid yellow" : "",
+        // border: md ? "1px solid yellow" : "",
         // marginBottom: "30px",
         // border: "1px solid red",
       }}
@@ -132,6 +132,7 @@ const Footeer = () => {
                 color: "#C9C9C9",
                 fontSize: sm ? "16px" : "24px",
                 textTransform: "none",
+                marginLeft: "6px",
               }}
             >
               kkhun531@gmail.com
@@ -140,11 +141,12 @@ const Footeer = () => {
         </Button>
       </Stack>
 
-      <Divider sx={{ m: sm ? "30px 0px" : "40px 0px", width: "100vw" }} />
+      <Divider sx={{ m: sm ? "30px 0px" : "40px 0px", width: "100%" }} />
 
       <Stack
         sx={{
-          width: "100%",
+          // width: "100%",
+          width: lg ? "85%" : "1114px",
           height: "30px",
           display: "flex",
           justifyContent: "space-between",
