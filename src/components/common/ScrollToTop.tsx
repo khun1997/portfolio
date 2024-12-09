@@ -1,49 +1,57 @@
+"use client";
 import React from "react";
-import { Fab, Box } from "@mui/material";
+import { Fab, Box, useMediaQuery, Theme } from "@mui/material";
 import Image from "next/image";
 import TopArrow from "@/../public/svg/top_arrow.svg";
 
 const ScrollToTop = () => {
-  // Function to scroll the page to the top
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // Smooth scrolling behavior
+      behavior: "smooth",
     });
   };
 
+  const sm = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+
   return (
     <Box>
-      {/* Scroll to top button */}
       <Fab
         onClick={scrollToTop}
         sx={{
           position: "fixed",
-          bottom: 20,
-          right: 20,
-          zIndex: 1200, // Make sure the button is on top of other elements
-          backgroundColor: "#4FC3F7", // You can change the button color
+          bottom: sm ? 10 : 20,
+          right: sm ? 10 : 20,
+          zIndex: 1200,
+          backgroundColor: "#4FC3F7",
+          width: sm ? 40 : 56,
+          height: sm ? 40 : 56,
           "&:hover": {
-            backgroundColor: "#0288d1", // Hover color
-            animation: "jump 0.5s ease-in-out", // Jumping effect on hover
+            backgroundColor: "#0288d1",
+            animation: "jump 0.5s ease-in-out",
           },
-          animation: "jump 2s ease-in-out infinite", // Make the jump animation infinite
+          animation: "jump 2s ease-in-out infinite",
         }}
         aria-label="scroll to top"
       >
-        <Image src={TopArrow} alt="top-arrow" />
+        <Image
+          src={TopArrow}
+          alt="top-arrow"
+          width={sm ? 20 : 24}
+          height={sm ? 20 : 24}
+        />
       </Fab>
 
       <style jsx global>{`
         @keyframes jump {
           0% {
-            transform: translateY(0); /* Normal position */
+            transform: translateY(0);
           }
           50% {
-            transform: translateY(-10px); /* Move the button up */
+            transform: translateY(-10px);
           }
           100% {
-            transform: translateY(0); /* Return to original position */
+            transform: translateY(0);
           }
         }
       `}</style>

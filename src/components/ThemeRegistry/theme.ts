@@ -8,6 +8,36 @@ const defaultTheme = createTheme({
         noSsr: true,
       },
     },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          "& .MuiOutlinedInput-root": {
+            width: "100%",
+            borderRadius: "10px",
+            color: "white",
+            fontSize: "14px",
+            border: "0.5px solid #D6DDED",
+            fontFamily: "Montserrat, sans-serif",
+
+            "& fieldset": {
+              // border: "0.5px solid red",
+            },
+            "&:hover fieldset": {
+              borderColor: "#4FC3F7",
+            },
+            "&.Mui-focused fieldset": {
+              borderColor: "#4FC3F7",
+            },
+          },
+          "& .MuiInputLabel-root": {
+            color: "white",
+            "&.Mui-focused": {
+              color: "white",
+            },
+          },
+        },
+      },
+    },
   },
 });
 

@@ -28,9 +28,6 @@ const SkillSection = () => {
     setExpanded(!expanded);
   };
 
-  if (sm) {
-    console.log("sm");
-  }
   return (
     <Stack
       id="skills"
