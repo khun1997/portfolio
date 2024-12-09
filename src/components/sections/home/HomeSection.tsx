@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import HomeBg from "@/../public/home-bg.svg";
-import Profile from "@/../public/svg/profile.svg";
 import Image from "next/image";
+import HomeBg from "@/../public/home-bg.svg";
+import Profile from "@/../public/image/profile.png";
 import { DownloadMe } from "@/components/common/CommonButton";
 import { Stack, Theme, Typography, useMediaQuery } from "@mui/material";
 import ScrollToTop from "@/components/common/ScrollToTop";
@@ -20,7 +20,8 @@ const HomeSection = () => {
         height: lg ? "auto" : "100vh",
         marginTop: md ? "0px" : lg ? "200px" : "initial",
         display: "flex",
-        justifyContent: lg ? "center" : "space-evenly",
+        // justifyContent: lg ? "center" : "space-evenly",
+        justifyContent: lg ? "center" : "center",
         alignItems: "center",
         flexDirection: "row",
         gap: lg ? "0px" : "70px",
@@ -41,15 +42,18 @@ const HomeSection = () => {
 
       <Stack
         sx={{
-          width: "700px",
+          // width: "700px",
+          width: "600px",
+
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
           flexDirection: "column",
           // border: "1px solid yellow",
-          gap: "6px",
+          // gap: "6px",
+          gap: lg ? "6px" : "16px",
           padding: "0px 20px",
-          // marginTop: "50px",
+          marginBottom: "50px",
         }}
       >
         <Typography
@@ -103,9 +107,10 @@ const HomeSection = () => {
       {!lg && (
         <Stack
           sx={{
-            width: "342px",
-            height: "400px",
-            border: "1px solid #4FC3F7",
+            width: "330px",
+            height: "330px",
+            marginBottom: "65px",
+            // border: "1px solid #4FC3F7",
           }}
         >
           <Image
