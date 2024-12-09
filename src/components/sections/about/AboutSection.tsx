@@ -58,12 +58,12 @@ const AboutSection = () => {
               marginTop: sm ? "30px" : "40px",
             }}
           >
-            Hi there! I&apos;m [Your Name], a data scientist specializing in
-            data analytics, predictive modeling, natural language processing,
-            machine learning, and AI chatbots. With a passion for unraveling
-            insights from complex datasets, I&apos;m dedicated to helping
-            businesses make informed decisions and stay ahead in today&apos;s
-            data-driven world.
+            Hi there! I&rsquo;m Khun Ye Aung, a frontend web developer
+            specializing in creating dynamic, user-friendly web applications
+            using JavaScript, TypeScript, ReactJS, NextJS, and AstroJS. With a
+            solid foundation in backend technologies as well, I bring a
+            full-stack approach to building scalable, high-performance websites
+            and applications.
           </Typography>
 
           <Typography
@@ -73,11 +73,11 @@ const AboutSection = () => {
               fontFamily: "Poppins, sans-serif",
             }}
           >
-            I bring a blend of technical expertise, hands-on experience, and a
-            commitment to clear communication to every project. Whether
-            it&apos;s uncovering hidden patterns, predicting future trends, or
-            automating processes with AI, I&apos;m here to help you harness the
-            full potential of your data.
+            I have a passion for crafting seamless user experiences and ensuring
+            optimal performance across various platforms. Whether it&rsquo;s
+            developing interactive UIs, managing state with React, or optimizing
+            page load times with NextJS and AstroJS, I&rsquo;m here to help you
+            build fast, responsive web solutions.
           </Typography>
 
           <Typography
@@ -87,9 +87,11 @@ const AboutSection = () => {
               fontFamily: "Poppins, sans-serif",
             }}
           >
-            Let&apos;s work together to transform your data into actionable
-            insights that drive real results. Get in touch, and let&apos;s start
-            unlocking the power of your data today!
+            Combining my frontend expertise with backend knowledge, I focus on
+            delivering end-to-end solutions that meet your business needs.
+            Let&rsquo;s collaborate to build modern, innovative web applications
+            that stand out. Reach out, and let&rsquo;s create something amazing
+            together!
           </Typography>
         </Stack>
       </Stack>

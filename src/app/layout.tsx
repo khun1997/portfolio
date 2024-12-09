@@ -15,6 +15,42 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <title>Khun Ye Aung's Portfolio</title>
+        <meta name="title" content="Khun Ye Aung's Portfolio" />
+        <meta
+          name="description"
+          content="Hi there! I'm Khun Ye Aung, a frontend web developer specializing in
+            creating dynamic, user-friendly web applications using JavaScript,
+            TypeScript, ReactJS, NextJS, and AstroJS. With a solid foundation in
+            backend technologies as well, I bring a full-stack approach to
+            building scalable, high-performance websites and applications."
+        />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ibb.co/7yZ9ZL4" />
+        <meta property="og:title" content="Khun Ye Aung's Portfolio" />
+        <meta
+          property="og:description"
+          content="Hi there! I'm Khun Ye Aung, a frontend web developer specializing in
+            creating dynamic, user-friendly web applications using JavaScript,
+            TypeScript, ReactJS, NextJS, and AstroJS. With a solid foundation in
+            backend technologies as well, I bring a full-stack approach to
+            building scalable, high-performance websites and applications."
+        />
+        <meta property="og:image" content="https://ibb.co/7yZ9ZL4" />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://ibb.co/7yZ9ZL4" />
+        <meta property="twitter:title" content="Khun Ye Aung's Portfolio" />
+        <meta
+          property="twitter:description"
+          content="Hi there! I'm Khun Ye Aung, a frontend web developer specializing in
+            creating dynamic, user-friendly web applications using JavaScript,
+            TypeScript, ReactJS, NextJS, and AstroJS. With a solid foundation in
+            backend technologies as well, I bring a full-stack approach to
+            building scalable, high-performance websites and applications."
+        />
+        <meta property="twitter:image" content="https://ibb.co/7yZ9ZL4" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
