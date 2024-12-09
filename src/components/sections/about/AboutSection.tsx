@@ -58,9 +58,9 @@ const AboutSection = () => {
               marginTop: sm ? "30px" : "40px",
             }}
           >
-            Hi there! I&rsquo;m Khun Ye Aung, a frontend web developer
+            "Hi there! I&rsquo;m Khun Ye Aung, a frontend web developer
             specializing in creating dynamic, user-friendly web applications
-            using JavaScript, TypeScript, ReactJS, NextJS, and AstroJS. With a
+            using JavaScript, TypeScript, ReactJs, NextJs, and AstroJs. With a
             solid foundation in backend technologies as well, I bring a
             full-stack approach to building scalable, high-performance websites
             and applications.
@@ -76,7 +76,7 @@ const AboutSection = () => {
             I have a passion for crafting seamless user experiences and ensuring
             optimal performance across various platforms. Whether it&rsquo;s
             developing interactive UIs, managing state with React, or optimizing
-            page load times with NextJS and AstroJS, I&rsquo;m here to help you
+            page load times with NextJs and AstroJs, I&rsquo;m here to help you
             build fast, responsive web solutions.
           </Typography>
 
@@ -91,7 +91,7 @@ const AboutSection = () => {
             delivering end-to-end solutions that meet your business needs.
             Let&rsquo;s collaborate to build modern, innovative web applications
             that stand out. Reach out, and let&rsquo;s create something amazing
-            together!
+            together"
           </Typography>
         </Stack>
       </Stack>

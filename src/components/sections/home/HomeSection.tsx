@@ -88,8 +88,8 @@ const HomeSection = () => {
           }}
         >
           &quot;As a passionate frontend web developer, with expertise in
-          JavaScript, ReactJs, NextJs, and modern web frameworks, I thrive on
-          the challenges of creating intuitive, responsive designs and building
+          JavaScript, ReactJs, NextJs and modern web frameworks, I thrive on the
+          challenges of creating intuitive, responsive designs and building
           seamless user experiences that drive engagement and innovation.&quot;
         </Typography>
 
