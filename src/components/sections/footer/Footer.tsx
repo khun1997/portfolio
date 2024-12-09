@@ -68,8 +68,8 @@ const Footeer = () => {
     <Stack
       id="footeer"
       style={{
-        width: lg ? "100%" : "1114px",
-        // width: "100%",
+        // width: lg ? "100%" : "1114px",
+        width: "100%",
         height: md ? "auto" : "242px",
         marginTop: sm ? "100px" : "0px",
         display: "flex",
@@ -145,8 +145,8 @@ const Footeer = () => {
 
       <Stack
         sx={{
-          // width: "100%",
-          width: "85%",
+          width: "100%",
+          // width: "85%",
           height: "30px",
           display: "flex",
           justifyContent: "space-between",
