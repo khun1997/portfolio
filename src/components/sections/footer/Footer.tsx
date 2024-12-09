@@ -60,6 +60,7 @@ const Footeer = () => {
   const sm = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
   const md = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
   const lg = useMediaQuery((theme: Theme) => theme.breakpoints.down("lg"));
+  // const xl = useMediaQuery((theme: Theme) => theme.breakpoints.down("xl"));
 
   const currentYear = new Date().getFullYear();
 
@@ -67,13 +68,15 @@ const Footeer = () => {
     <Stack
       id="footeer"
       style={{
-        width: "100%",
+        width: lg ? "100%" : "1114px",
+        // width: "100%",
         height: md ? "auto" : "242px",
         marginTop: sm ? "100px" : "0px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
+        border: md ? "1px solid yellow" : "",
         // marginBottom: "30px",
         // border: "1px solid red",
       }}
