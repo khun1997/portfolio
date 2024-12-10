@@ -150,7 +150,7 @@ const Footeer = () => {
           height: "30px",
           display: "flex",
           justifyContent: "space-between",
-          padding: sm ? "15px" : "0px 50px",
+          padding: sm ? "0px 30px" : "0px 50px",
           alignItems: "center",
           flexDirection: "row",
           marginBottom: sm ? "20px" : lg ? "20px" : "",
