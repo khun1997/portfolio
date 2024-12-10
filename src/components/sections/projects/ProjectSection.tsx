@@ -53,6 +53,7 @@ const SkillSection = () => {
             fontWeight: "bold",
             fontFamily: "Poppins, sans-serif",
             textAlign: "center",
+            color: "#E1E1E1",
           }}
         >
           My Tech Stack

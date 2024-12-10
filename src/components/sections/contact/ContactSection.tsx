@@ -116,6 +116,7 @@ const ContactSection = () => {
               fontSize: sm ? "28px" : "45px",
               fontWeight: "bold",
               fontFamily: "Poppins, sans-serif",
+              color: "#E1E1E1",
             }}
           >
             Get In Touch

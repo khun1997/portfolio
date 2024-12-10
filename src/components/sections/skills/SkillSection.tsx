@@ -51,6 +51,7 @@ const SkillSection = () => {
             fontSize: sm ? "35px" : "45px",
             fontWeight: "bold",
             fontFamily: "Poppins, sans-serif",
+            color: "#E1E1E1",
           }}
         >
           My Tech Stack

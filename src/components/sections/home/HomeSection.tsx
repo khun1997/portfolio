@@ -32,6 +32,8 @@ const HomeSection = () => {
         src={HomeBg}
         alt=""
         style={{
+          width: "100%",
+          height: "auto",
           position: "absolute",
           zIndex: "-10",
           top: "70%",
@@ -61,6 +63,7 @@ const HomeSection = () => {
             fontSize: sm ? "35px" : "63px",
             fontWeight: "bold",
             fontFamily: "Poppins, sans-serif",
+            color: "#E1E1E1",
           }}
         >
           Khun Ye Aung
@@ -75,7 +78,6 @@ const HomeSection = () => {
               "linear-gradient(to right, #4FC3F7 0%,#9bd8f5f0 50%, #ffffff 100%)",
             WebkitBackgroundClip: "text",
             color: "transparent",
-
             backgroundClip: "text",
             WebkitTextFillColor: "transparent",
             fontFamily: "Poppins, sans-serif",
@@ -88,13 +90,14 @@ const HomeSection = () => {
           sx={{
             textAlign: "center",
             fontSize: "14px",
+            color: "#E1E1E1",
             fontFamily: "Poppins, sans-serif",
           }}
         >
-          &quot;As a passionate frontend web developer, with expertise in
+          ""As a passionate frontend web developer, with expertise in
           JavaScript, ReactJs, NextJs and modern web frameworks, I thrive on the
           challenges of creating intuitive, responsive designs and building
-          seamless user experiences that drive engagement and innovation.&quot;
+          seamless user experiences that drive engagement and innovation.""
         </Typography>
 
         <Stack sx={{ marginTop: "30px" }}>

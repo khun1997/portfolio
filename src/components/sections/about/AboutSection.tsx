@@ -26,6 +26,7 @@ const AboutSection = () => {
               fontSize: sm ? "35px" : "45px",
               fontWeight: "bold",
               fontFamily: "Poppins, sans-serif",
+              color: "#E1E1E1",
             }}
           >
             About Me
@@ -56,6 +57,7 @@ const AboutSection = () => {
               fontSize: sm ? "14px" : "17px",
               fontFamily: "Poppins, sans-serif",
               marginTop: sm ? "30px" : "40px",
+              color: "#E1E1E1",
             }}
           >
             "Hi there! I&rsquo;m Khun Ye Aung, a frontend web developer
@@ -71,6 +73,7 @@ const AboutSection = () => {
               textAlign: "center",
               fontSize: sm ? "14px" : "17px",
               fontFamily: "Poppins, sans-serif",
+              color: "#E1E1E1",
             }}
           >
             I have a passion for crafting seamless user experiences and ensuring
@@ -85,6 +88,7 @@ const AboutSection = () => {
               textAlign: "center",
               fontSize: sm ? "14px" : "17px",
               fontFamily: "Poppins, sans-serif",
+              color: "#E1E1E1",
             }}
           >
             Combining my frontend expertise with backend knowledge, I focus on
