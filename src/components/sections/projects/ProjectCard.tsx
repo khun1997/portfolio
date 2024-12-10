@@ -1,21 +1,31 @@
+"use client";
 import { Button, Stack, Theme, Typography, useMediaQuery } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 import DetailArrow from "@/../public/svg/detail_arrow.svg";
+import { useRouter } from "next/navigation";
 
 type Props = {
   id: number;
   name: string;
   description: string;
-  image?: StaticImageData | string | null;
+  mainImage: StaticImageData | string;
+  images?: (StaticImageData | string | null)[];
 };
 
-const ProjectCard = ({ id, description, name, image }: Props) => {
+const ProjectCard = ({ id, description, name, mainImage }: Props) => {
   const sm = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/projects/${id}`);
+  };
 
   return (
     <Stack
       key={id}
+      onClick={handleClick}
       sx={{
         width: "100%",
         maxWidth: "354px",
@@ -44,7 +54,7 @@ const ProjectCard = ({ id, description, name, image }: Props) => {
         },
       }}
     >
-      {image ? (
+      {mainImage ? (
         <Stack
           sx={{
             width: "354px",
@@ -56,7 +66,12 @@ const ProjectCard = ({ id, description, name, image }: Props) => {
             overflow: "hidden",
           }}
         >
-          <Image src={image} alt={`${name} logo`} width={354} height={198} />
+          <Image
+            src={mainImage}
+            alt={`${name} logo`}
+            width={354}
+            height={198}
+          />
         </Stack>
       ) : (
         <Typography sx={{ color: "#E1E1E1", fontSize: "14px" }}>

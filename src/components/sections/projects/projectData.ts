@@ -1,3 +1,4 @@
+"use client";
 import ConifeLanding from "@/../public/image/project/confie_landing.png";
 import ConfieWaitlist from "@/../public/image/project/confie_waitlist.png";
 import CSOAEkyc from "@/../public/image/project/csoa-ekyc.png";
@@ -5,8 +6,27 @@ import CSOALanding from "@/../public/image/project/csoa-landing.png";
 import CSOAMain from "@/../public/image/project/csoa-main.png";
 import ReactXCampMyanmar from "@/../public/image/project/react-x-camp-myanmar.png";
 import Portfolio from "@/../public/image/project/portfolio.png";
+import { StaticImageData } from "next/image";
 
-export const projectsData = [
+type Documentation = {
+  id: number;
+  text: string;
+};
+
+export type ProjecType = {
+  id: number;
+  name: string;
+  description: string;
+  techStack: string[];
+  rating: number;
+  mainImage: StaticImageData | string;
+  images?: (StaticImageData | string)[];
+  type: string;
+  documentation?: Documentation[];
+  website?: string;
+};
+
+export const projectsData: ProjecType[] = [
   {
     id: 1,
     name: "Confie Landing",
@@ -14,8 +34,15 @@ export const projectsData = [
       "A personal portfolio website to showcase my projects and skills.",
     techStack: ["ReactJS", "NextJS", "TypeScript"],
     rating: 4.9,
-    image: ConifeLanding,
+    mainImage: ConifeLanding,
+    images: [ConifeLanding, ConfieWaitlist],
     type: "Landing",
+    documentation: [
+      { id: 1, text: "Step 1: Install dependencies using npm or yarn." },
+      { id: 2, text: "Step 2: Configure your environment variables." },
+      { id: 3, text: "Step 3: Start the development server." },
+    ],
+    website: "https://confie-landing.vercel.app/",
   },
   {
     id: 2,
@@ -24,8 +51,15 @@ export const projectsData = [
       "A task management application to organize and track daily tasks.",
     techStack: ["ReactJS", "NodeJS", "MongoDB"],
     rating: 4.4,
-    image: CSOAMain,
+    mainImage: CSOAMain,
+    images: [CSOAMain],
     type: "LMS",
+    documentation: [
+      { id: 1, text: "Step 1: Install dependencies using npm or yarn." },
+      { id: 2, text: "Step 2: Configure your environment variables." },
+      { id: 3, text: "Step 3: Start the development server." },
+    ],
+    website: "https://www.csoacademymm.org/learning/search",
   },
 
   {
@@ -35,8 +69,15 @@ export const projectsData = [
       "A modern blog platform with support for markdown posts, tags, and comments.",
     techStack: ["AstroJS", "NextJS", "Git"],
     rating: 4.7,
-    image: ReactXCampMyanmar,
+    mainImage: ReactXCampMyanmar,
+    images: [ReactXCampMyanmar],
     type: "Volunteer",
+    documentation: [
+      { id: 1, text: "Step 1: Install dependencies using npm or yarn." },
+      { id: 2, text: "Step 2: Configure your environment variables." },
+      { id: 3, text: "Step 3: Start the development server." },
+    ],
+    website: "https://=.com",
   },
   {
     id: 4,
@@ -44,8 +85,15 @@ export const projectsData = [
     description: "A real-time chat application with WebSocket integration.",
     techStack: ["ReactJS", "NodeJS", "WebSocket"],
     rating: 4.6,
-    image: CSOALanding,
+    mainImage: CSOALanding,
+    images: [CSOALanding],
     type: "Landing",
+    documentation: [
+      { id: 1, text: "Step 1: Install dependencies using npm or yarn." },
+      { id: 2, text: "Step 2: Configure your environment variables." },
+      { id: 3, text: "Step 3: Start the development server." },
+    ],
+    website: "https://www.csoacademymm.org/",
   },
   {
     id: 5,
@@ -54,8 +102,15 @@ export const projectsData = [
       "A fully functional e-commerce website with product catalog, cart, and checkout.",
     techStack: ["ReactJS", "NodeJS", "PostgreSQL"],
     rating: 4.8,
-    image: ConfieWaitlist,
+    mainImage: ConfieWaitlist,
+    images: [ConfieWaitlist],
     type: "Landing",
+    documentation: [
+      { id: 1, text: "Step 1: Install dependencies using npm or yarn." },
+      { id: 2, text: "Step 2: Configure your environment variables." },
+      { id: 3, text: "Step 3: Start the development server." },
+    ],
+    website: "https://confie.ai/",
   },
   {
     id: 6,
@@ -64,8 +119,15 @@ export const projectsData = [
       "A modern blog platform with support for markdown posts, tags, and comments.",
     techStack: ["AstroJS", "NextJS", "Git"],
     rating: 4.7,
-    image: CSOAEkyc,
+    mainImage: CSOAEkyc,
+    images: [CSOAEkyc],
     type: "Ekyc",
+    documentation: [
+      { id: 1, text: "Step 1: Install dependencies using npm or yarn." },
+      { id: 2, text: "Step 2: Configure your environment variables." },
+      { id: 3, text: "Step 3: Start the development server." },
+    ],
+    website: "https://-.com",
   },
   {
     id: 7,
@@ -74,8 +136,16 @@ export const projectsData = [
       "A modern blog platform with support for markdown posts, tags, and comments.",
     techStack: ["AstroJS", "NextJS", "Git"],
     rating: 4.7,
-    image: Portfolio,
+    mainImage: Portfolio,
+    images: [Portfolio],
     type: "Portfolio",
+    documentation: [
+      { id: 1, text: "Step 1: Install dependencies using npm or yarn." },
+      { id: 2, text: "Step 2: Configure your environment variables." },
+      { id: 3, text: "Step 3: Start the development server." },
+    ],
+    website: "https://-.com",
+    // need to add
   },
 
   //   {

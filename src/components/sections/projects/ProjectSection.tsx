@@ -10,6 +10,7 @@ import ProjectCard from "./ProjectCard";
 const SkillSection = () => {
   const sm = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
   const md = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
+  const lg = useMediaQuery((theme: Theme) => theme.breakpoints.down("lg"));
 
   const [selectedCategory, setSelectedCategory] = useState<ProjectType>("All");
   const [expanded, setExpanded] = useState(false);
@@ -34,7 +35,7 @@ const SkillSection = () => {
       id="projects"
       sx={{
         width: "100%",
-        height: expanded ? "auto" : md ? "auto" : "100vh",
+        height: expanded ? "auto" : lg ? "auto" : "auto",
 
         padding: sm ? "16px" : "32px",
         display: "flex",
@@ -56,7 +57,7 @@ const SkillSection = () => {
             color: "#E1E1E1",
           }}
         >
-          My Tech Stack
+          Projects
         </Typography>
 
         <Typography
@@ -112,7 +113,8 @@ const SkillSection = () => {
                 id={data.id}
                 name={data.name}
                 description={data.description}
-                image={data.image}
+                mainImage={data.mainImage}
+                images={data.images}
               />
             </motion.div>
           ))}
