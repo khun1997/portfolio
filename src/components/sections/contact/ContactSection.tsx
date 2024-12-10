@@ -107,7 +107,7 @@ const ContactSection = () => {
         sx={{
           width: md ? "100%" : "696px",
           height: "auto",
-          padding: sm ? "10px 15px" : "20px",
+          padding: sm ? "10px 23px" : "20px",
         }}
       >
         <Stack sx={{ width: "100%" }}>

@@ -89,6 +89,7 @@ const Footeer = () => {
           width: "100%",
           flexDirection: md ? "column" : "row",
           gap: "20px",
+          padding: sm ? "23px" : "0px",
         }}
       >
         <Stack
