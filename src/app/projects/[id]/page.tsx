@@ -32,7 +32,11 @@ export default async function ProjectPage({ params }: Props) {
             stroke="currentColor"
             strokeWidth={2}
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M7 16l-4-4m0 0l4-4m-4 4h18"
+            />
           </svg>
           Back to Projects
         </Link>
@@ -44,20 +48,32 @@ export default async function ProjectPage({ params }: Props) {
 
         {/* Project info */}
         <div className="max-w-3xl">
-          <span className="text-xs font-mono text-primary uppercase tracking-wider animate-fade-in-up" style={{ animationDelay: "200ms" }}>
+          <span
+            className="text-xs font-mono text-primary uppercase tracking-wider animate-fade-in-up"
+            style={{ animationDelay: "200ms" }}
+          >
             {project.category}
           </span>
 
-          <h1 className="text-3xl md:text-4xl font-black text-foreground mt-2 mb-4 animate-fade-in-up" style={{ animationDelay: "250ms" }}>
+          <h1
+            className="text-3xl md:text-4xl font-black text-foreground mt-2 mb-4 animate-fade-in-up"
+            style={{ animationDelay: "250ms" }}
+          >
             {project.title}
           </h1>
 
-          <p className="text-muted-foreground leading-relaxed mb-8 animate-fade-in-up" style={{ animationDelay: "300ms" }}>
+          <p
+            className="text-muted-foreground leading-relaxed mb-8 animate-fade-in-up"
+            style={{ animationDelay: "300ms" }}
+          >
             {project.longDescription}
           </p>
 
           {/* Tech stack */}
-          <div className="mb-10 animate-fade-in-up" style={{ animationDelay: "350ms" }}>
+          <div
+            className="mb-10 animate-fade-in-up"
+            style={{ animationDelay: "350ms" }}
+          >
             <h2 className="text-xs font-semibold text-foreground mb-3 uppercase tracking-widest">
               Technologies
             </h2>
@@ -74,13 +90,20 @@ export default async function ProjectPage({ params }: Props) {
           </div>
 
           {/* What I Built */}
-          <div className="mb-10 animate-fade-in-up" style={{ animationDelay: "400ms" }}>
+          <div
+            className="mb-10 animate-fade-in-up"
+            style={{ animationDelay: "400ms" }}
+          >
             <h2 className="text-lg font-bold text-foreground mb-4">
               What I Built
             </h2>
             <ul className="space-y-3">
               {project.tasks.map((task, i) => (
-                <li key={i} className="flex items-start gap-3 text-muted-foreground animate-fade-in-left" style={{ animationDelay: `${450 + i * 50}ms` }}>
+                <li
+                  key={i}
+                  className="flex items-start gap-3 text-muted-foreground animate-fade-in-left"
+                  style={{ animationDelay: `${450 + i * 50}ms` }}
+                >
                   <svg
                     className="w-5 h-5 text-primary mt-0.5 shrink-0"
                     fill="none"
@@ -88,7 +111,11 @@ export default async function ProjectPage({ params }: Props) {
                     stroke="currentColor"
                     strokeWidth={2}
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
                   <span>{task}</span>
                 </li>
@@ -97,10 +124,14 @@ export default async function ProjectPage({ params }: Props) {
           </div>
 
           {/* Action buttons */}
-          <div className="flex gap-4 pt-6 border-t border-border animate-fade-in-up" style={{ animationDelay: "500ms" }}>
+          <div
+            className="flex gap-4 pt-6 border-t border-border animate-fade-in-up"
+            style={{ animationDelay: "500ms" }}
+          >
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
+                target="_blank"
                 className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-primary-foreground rounded-lg text-sm font-semibold hover:opacity-90 transition-all duration-200 hover:shadow-lg hover:shadow-primary/25 hover:scale-105 active:scale-95"
               >
                 <svg
@@ -122,6 +153,7 @@ export default async function ProjectPage({ params }: Props) {
             {project.repoUrl && (
               <a
                 href={project.repoUrl}
+                target="_blank"
                 className="group inline-flex items-center gap-2 px-6 py-2.5 border-2 border-border text-foreground rounded-lg text-sm font-semibold hover:border-primary hover:text-primary transition-all duration-200 hover:scale-105 active:scale-95 relative overflow-hidden"
               >
                 <span className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300 rounded-lg" />

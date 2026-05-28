@@ -39,8 +39,8 @@ export const projects: Project[] = [
       "/image/csoa-platform/csoa-6.png",
       "/image/csoa-platform/csoa7.png",
     ],
-    liveUrl: "#",
-    repoUrl: "#",
+    liveUrl: "https://www.csoacademymm.org/learning",
+    // repoUrl: "#",
     tasks: [
       "Built a responsive product catalog with advanced filtering and search",
       "Implemented a real-time shopping cart with optimistic UI updates",
@@ -58,12 +58,9 @@ export const projects: Project[] = [
     tech: ["React", "TypeScript", "Zustand", "DnD Kit", "CSS Modules", "Vite"],
     category: "Learning Management System",
     imageUrl: "/image/cop/cop-1.png",
-    images: [
-      "/image/cop/cop-1.png",
-      "/image/cop/cop-2.png",
-    ],
-    liveUrl: "#",
-    repoUrl: "#",
+    images: ["/image/cop/cop-1.png", "/image/cop/cop-2.png"],
+    liveUrl: "https://www.csoacademymm.org/learning",
+    // repoUrl: "#",
     tasks: [
       "Built a Kanban board with smooth drag-and-drop card reordering",
       "Implemented real-time collaboration updates via WebSocket",
@@ -87,11 +84,9 @@ export const projects: Project[] = [
     ],
     category: "Ekyc",
     imageUrl: "/image/ekyc/csoa-ekyc.webp",
-    images: [
-      "/image/ekyc/csoa-ekyc.webp",
-    ],
-    liveUrl: "#",
-    repoUrl: "#",
+    images: ["/image/ekyc/csoa-ekyc.webp"],
+    // liveUrl: "#",
+    // repoUrl: "#",
     tasks: [
       "Integrated OpenWeatherMap API for real-time forecast data",
       "Built interactive charts for temperature and precipitation trends",
@@ -109,11 +104,9 @@ export const projects: Project[] = [
     tech: ["React", "D3.js", "TypeScript", "Tailwind CSS", "Recharts", "Vite"],
     category: "Volunteer",
     imageUrl: "/image/reactXCamp/react-x-camp-myanmar.webp",
-    images: [
-      "/image/reactXCamp/react-x-camp-myanmar.webp",
-    ],
-    liveUrl: "#",
-    repoUrl: "#",
+    images: ["/image/reactXCamp/react-x-camp-myanmar.webp"],
+    // liveUrl: "#",
+    // repoUrl: "https://github.com/khun1997/lucky-draw-app-ReactXCamp.Myanmar-",
     tasks: [
       "Aggregated data from multiple social media platforms into one dashboard",
       "Built interactive D3.js visualizations for engagement and growth metrics",
@@ -131,11 +124,9 @@ export const projects: Project[] = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "DnD Kit", "Vercel API"],
     category: "Landing",
     imageUrl: "/image/csoa-landing/csoa-landing.png",
-    images: [
-      "/image/csoa-landing/csoa-landing.png",
-    ],
-    liveUrl: "#",
-    repoUrl: "#",
+    images: ["/image/csoa-landing/csoa-landing.png"],
+    liveUrl: "https://www.csoacademymm.org/",
+    // repoUrl: "#",
     tasks: [
       "Built a visual drag-and-drop editor for creating portfolios without code",
       "Designed pre-built templates with customization options",
@@ -164,8 +155,8 @@ export const projects: Project[] = [
       "/image/confie-landing/confie-2.png",
       "/image/confie-landing/confie-3.png",
     ],
-    liveUrl: "#",
-    repoUrl: "#",
+    liveUrl: "https://confie.ai/",
+    // repoUrl: "https://github.com/khun1997/confie.selfie",
     tasks: [
       "Built real-time messaging with WebSocket connections",
       "Implemented public channels and private direct messages",
@@ -189,10 +180,8 @@ export const projects: Project[] = [
     ],
     category: "Landing",
     imageUrl: "/image/confie-waitlist/confie_waitlist.webp",
-    images: [
-      "/image/confie-waitlist/confie_waitlist.webp",
-    ],
-    liveUrl: "#",
+    images: ["/image/confie-waitlist/confie_waitlist.webp"],
+    liveUrl: "https://confie.ai/",
     repoUrl: "#",
     tasks: [
       "Integrated OpenWeatherMap API for real-time forecast data",
@@ -219,11 +208,9 @@ export const projects: Project[] = [
     ],
     category: "Chat App",
     imageUrl: "/image/babysalad/babysalad.png",
-    images: [
-      "/image/babysalad/babysalad.png",
-    ],
-    liveUrl: "#",
-    repoUrl: "#",
+    images: ["/image/babysalad/babysalad.png"],
+    liveUrl: "https://www.babycnx.pro/",
+    // repoUrl: "https://github.com/khun1997/Baby-Salad-CM",
     tasks: [
       "Built a responsive product catalog with advanced filtering and search",
       "Implemented a real-time shopping cart with optimistic UI updates",
@@ -246,8 +233,8 @@ export const projects: Project[] = [
       "/image/8one/8one-2.png",
       "/image/8one/8one-3.png",
     ],
-    liveUrl: "#",
-    repoUrl: "#",
+    liveUrl: "https://www.8onevilla.com/",
+    // repoUrl: "https://github.com/khun1997/8-one-villa",
     tasks: [
       "Built a Kanban board with smooth drag-and-drop card reordering",
       "Implemented real-time collaboration updates via WebSocket",
@@ -265,11 +252,9 @@ export const projects: Project[] = [
     tech: ["React", "TypeScript", "Zustand", "DnD Kit", "CSS Modules", "Vite"],
     category: "Landing",
     imageUrl: "/image/movie-gallery/movie-gallery.jpg",
-    images: [
-      "/image/movie-gallery/movie-gallery.jpg",
-    ],
-    liveUrl: "#",
-    repoUrl: "#",
+    images: ["/image/movie-gallery/movie-gallery.jpg"],
+    // liveUrl: "#",
+    repoUrl: "https://github.com/khun1997/movie-gallery",
     tasks: [
       "Built a Kanban board with smooth drag-and-drop card reordering",
       "Implemented real-time collaboration updates via WebSocket",
@@ -287,11 +272,9 @@ export const projects: Project[] = [
     tech: ["React", "TypeScript", "Zustand", "DnD Kit", "CSS Modules", "Vite"],
     category: "Landing",
     imageUrl: "/image/phone-gallery/phone-gallery.png",
-    images: [
-      "/image/phone-gallery/phone-gallery.png",
-    ],
-    liveUrl: "#",
-    repoUrl: "#",
+    images: ["/image/phone-gallery/phone-gallery.png"],
+    // liveUrl: "#",
+    repoUrl: "https://github.com/khun1997/Phone-Gallery",
     tasks: [
       "Built a Kanban board with smooth drag-and-drop card reordering",
       "Implemented real-time collaboration updates via WebSocket",
