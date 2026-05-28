@@ -51,12 +51,68 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 h-14 sm:h-16 flex items-center justify-between">
         <Link
           href="/"
-          className="group text-lg sm:text-xl font-bold text-foreground hover:text-primary transition-colors"
+          className="group text-foreground hover:text-primary transition-colors"
+          aria-label="Home"
         >
-          <span className="text-primary group-hover:animate-wiggle inline-block">
-            K
-          </span>
-          Y
+          <svg
+            viewBox="0 0 46 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-7 sm:w-8 h-auto group-hover:animate-wiggle origin-center"
+          >
+            {/* K - vertical stem */}
+            <path
+              d="M5 4v24"
+              stroke="currentColor"
+              strokeWidth="5"
+              strokeLinecap="round"
+            />
+            {/* K - upper diagonal */}
+            <path
+              d="M5.5 17.5L16 6"
+              className="text-primary"
+              stroke="currentColor"
+              strokeWidth="4.5"
+              strokeLinecap="round"
+            />
+            {/* K - lower diagonal */}
+            <path
+              d="M5.5 17.5L16 28"
+              className="text-primary"
+              stroke="currentColor"
+              strokeWidth="4.5"
+              strokeLinecap="round"
+            />
+            {/* Y - left arm */}
+            <path
+              d="M24 8l8 9"
+              stroke="currentColor"
+              strokeWidth="4"
+              strokeLinecap="round"
+            />
+            {/* Y - right arm */}
+            <path
+              d="M40 8l-8 9"
+              stroke="currentColor"
+              strokeWidth="4"
+              strokeLinecap="round"
+            />
+            {/* Y - stem */}
+            <path
+              d="M32 17v11"
+              stroke="currentColor"
+              strokeWidth="4"
+              strokeLinecap="round"
+            />
+            {/* Accent dot */}
+            <circle
+              cx="41"
+              cy="5.5"
+              r="2"
+              className="text-primary"
+              fill="currentColor"
+            />
+          </svg>
         </Link>
 
         <div className="flex items-center gap-2 sm:gap-4">

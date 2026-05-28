@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: "Khun Ye Aung | Frontend Developer Portfolio",
   description:
     "Frontend web developer portfolio showcasing projects built with Next.js, React, TypeScript, and modern web technologies.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
