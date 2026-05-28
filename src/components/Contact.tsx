@@ -1,13 +1,41 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import {
+  FaFacebook,
+  FaLinkedin,
+  FaTelegram,
+  FaWhatsapp,
+} from "react-icons/fa6";
+import { SiLine } from "react-icons/si";
 import Section from "./Section";
 
 const socialLinks = [
-  { label: "GitHub", href: "#", icon: <FaGithub size={24} style={{ color: "#333" }} /> },
-  { label: "LinkedIn", href: "#", icon: <FaLinkedin size={24} style={{ color: "#0A66C2" }} /> },
-  { label: "Twitter", href: "#", icon: <FaXTwitter size={24} style={{ color: "#000" }} /> },
+  {
+    label: "Facebook",
+    href: "#",
+    icon: <FaFacebook size={32} style={{ color: "#1877F2" }} />,
+  },
+  {
+    label: "LinkedIn",
+    href: "#",
+    icon: <FaLinkedin size={32} style={{ color: "#0A66C2" }} />,
+  },
+  {
+    label: "Telegram",
+    href: "#",
+    icon: <FaTelegram size={32} style={{ color: "#26A5E4" }} />,
+  },
+  {
+    label: "Line",
+    href: "#",
+    icon: <SiLine size={32} style={{ color: "#00C300" }} />,
+  },
+  {
+    label: "WhatsApp",
+    href: "#",
+    icon: <FaWhatsapp size={32} style={{ color: "#25D366" }} />,
+  },
 ];
 
 export default function Contact() {
@@ -97,7 +125,7 @@ export default function Contact() {
           </p>
         </form>
 
-        <div className="mt-6 pt-6 border-t border-border flex justify-center gap-8">
+        <div className="mt-6 pt-6 border-t border-border flex justify-center gap-6 sm:gap-8 flex-wrap">
           {socialLinks.map((link, i) => (
             <a
               key={link.label}
