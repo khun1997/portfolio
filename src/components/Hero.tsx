@@ -92,34 +92,36 @@ export default function Hero() {
         </div>
 
         <p
-          className={`text-foreground text-lg leading-relaxed max-w-lg mx-auto mb-10 transition-all duration-700 delay-300 ${
+          className={`text-foreground text-lg leading-relaxed max-w-4xl mx-auto mb-10 transition-all duration-700 delay-300 ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          I craft beautiful, performant web experiences with modern frontend
-          technologies. Passionate about clean code and intuitive design.
+          As a passionate frontend web developer, with expertise in JavaScript,
+          ReactJs, NextJs and modern web frameworks, I thrive on the challenges
+          of creating intuitive, responsive designs and building seamless user
+          experiences that drive engagement and innovation.
         </p>
 
         <div
-          className={`flex items-center justify-center gap-4 transition-all duration-700 delay-400 ${
+          className={`flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 transition-all duration-700 delay-400 ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           <a
             href="#projects"
-            className="group relative px-8 py-3.5 bg-primary text-primary-foreground rounded-lg font-semibold overflow-hidden transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-primary/30"
+            className="group relative w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 bg-primary text-primary-foreground rounded-lg font-semibold overflow-hidden transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-primary/30 text-sm sm:text-base"
           >
             <span className="relative z-10">View Projects</span>
             <span className="absolute inset-0 bg-black/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </a>
           <a
-            href="/cv.pdf"
-            download
-            className="relative inline-flex items-center gap-2 px-8 py-3.5 border-2 border-border text-foreground rounded-lg font-semibold hover:border-primary hover:text-primary transition-all duration-300 cursor-pointer group overflow-hidden"
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 border-2 border-border text-foreground rounded-lg font-semibold overflow-hidden transition-all duration-300 cursor-pointer hover:border-primary hover:text-primary text-sm sm:text-base"
           >
-            <span className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300 rounded-lg" />
             <svg
-              className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-0.5"
+              className="w-3.5 h-3.5 sm:w-4 sm:h-4 relative z-10"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -128,10 +130,11 @@ export default function Hero() {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9zm3.75 11.625a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"
               />
             </svg>
-            <span className="relative z-10">Download CV</span>
+            <span className="relative z-10">View Resume</span>
+            <span className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </a>
         </div>
       </div>

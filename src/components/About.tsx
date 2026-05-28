@@ -13,8 +13,10 @@ import {
   SiFramer,
   SiGit,
   SiFigma,
+  SiAstro,
+  SiStyledcomponents,
+  SiMui,
 } from "react-icons/si";
-import { LuSmartphone } from "react-icons/lu";
 
 interface TechItem {
   name: string;
@@ -39,6 +41,11 @@ const techStack: TechItem[] = [
     category: "Language",
     icon: <SiJavascript size={50} style={{ color: "#F7DF1E" }} />,
   },
+  {
+    name: "Astro",
+    category: "Framework",
+    icon: <SiAstro size={50} style={{ color: "#BC52EE" }} />,
+  },
   // {
   //   name: "HTML5",
   //   category: "Language",
@@ -55,6 +62,16 @@ const techStack: TechItem[] = [
     icon: <SiTailwindcss size={50} style={{ color: "#06B6D4" }} />,
   },
   {
+    name: "Styled Components",
+    category: "Styling",
+    icon: <SiStyledcomponents size={50} style={{ color: "#DB7093" }} />,
+  },
+  {
+    name: "MUI",
+    category: "Framework",
+    icon: <SiMui size={50} style={{ color: "#007FFF" }} />,
+  },
+  {
     name: "Framer Motion",
     category: "Animation",
     icon: <SiFramer size={50} style={{ color: "#0055FF" }} />,
@@ -68,11 +85,6 @@ const techStack: TechItem[] = [
     name: "Figma",
     category: "Design",
     icon: <SiFigma size={50} style={{ color: "#F24E1E" }} />,
-  },
-  {
-    name: "Responsive Design",
-    category: "Design",
-    icon: <LuSmartphone size={50} />,
   },
 ];
 
@@ -145,14 +157,15 @@ export default function About() {
             </p>
           </div>
 
-          {/* Download CV */}
+          {/* View Resume */}
           <a
-            href="/cv.pdf"
-            download
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative inline-flex items-center gap-2 mt-8 px-8 py-3.5 bg-primary text-primary-foreground rounded-lg font-semibold overflow-hidden transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-primary/30"
           >
             <svg
-              className="w-4 h-4 relative z-10 transition-transform duration-300 group-hover:-translate-y-0.5"
+              className="w-4 h-4 relative z-10"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -161,10 +174,10 @@ export default function About() {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9zm3.75 11.625a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"
               />
             </svg>
-            <span className="relative z-10">Download CV</span>
+            <span className="relative z-10">View Resume</span>
             <span className="absolute inset-0 bg-black/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </a>
         </div>
