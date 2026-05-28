@@ -23,17 +23,57 @@ interface TechItem {
 }
 
 const techStack: TechItem[] = [
-  { name: "React", category: "Framework", icon: <SiReact size={28} style={{ color: "#61DAFB" }} /> },
-  { name: "Next.js", category: "Framework", icon: <SiNextdotjs size={28} /> },
-  { name: "TypeScript", category: "Language", icon: <SiTypescript size={28} style={{ color: "#3178C6" }} /> },
-  { name: "JavaScript", category: "Language", icon: <SiJavascript size={28} style={{ color: "#F7DF1E" }} /> },
-  { name: "HTML5", category: "Language", icon: <SiHtml5 size={28} style={{ color: "#E34F26" }} /> },
-  { name: "CSS3", category: "Language", icon: <SiCss size={28} style={{ color: "#1572B6" }} /> },
-  { name: "Tailwind CSS", category: "Styling", icon: <SiTailwindcss size={28} style={{ color: "#06B6D4" }} /> },
-  { name: "Framer Motion", category: "Animation", icon: <SiFramer size={28} style={{ color: "#0055FF" }} /> },
-  { name: "Git", category: "Tool", icon: <SiGit size={28} style={{ color: "#F05032" }} /> },
-  { name: "Figma", category: "Design", icon: <SiFigma size={28} style={{ color: "#F24E1E" }} /> },
-  { name: "Responsive Design", category: "Design", icon: <LuSmartphone size={28} /> },
+  {
+    name: "React",
+    category: "Framework",
+    icon: <SiReact size={50} style={{ color: "#61DAFB" }} />,
+  },
+  { name: "Next.js", category: "Framework", icon: <SiNextdotjs size={40} /> },
+  {
+    name: "TypeScript",
+    category: "Language",
+    icon: <SiTypescript size={50} style={{ color: "#3178C6" }} />,
+  },
+  {
+    name: "JavaScript",
+    category: "Language",
+    icon: <SiJavascript size={50} style={{ color: "#F7DF1E" }} />,
+  },
+  // {
+  //   name: "HTML5",
+  //   category: "Language",
+  //   icon: <SiHtml5 size={50} style={{ color: "#E34F26" }} />,
+  // },
+  // {
+  //   name: "CSS3",
+  //   category: "Language",
+  //   icon: <SiCss size={50} style={{ color: "#1572B6" }} />,
+  // },
+  {
+    name: "Tailwind CSS",
+    category: "Styling",
+    icon: <SiTailwindcss size={50} style={{ color: "#06B6D4" }} />,
+  },
+  {
+    name: "Framer Motion",
+    category: "Animation",
+    icon: <SiFramer size={50} style={{ color: "#0055FF" }} />,
+  },
+  {
+    name: "Git",
+    category: "Tool",
+    icon: <SiGit size={50} style={{ color: "#F05032" }} />,
+  },
+  {
+    name: "Figma",
+    category: "Design",
+    icon: <SiFigma size={50} style={{ color: "#F24E1E" }} />,
+  },
+  {
+    name: "Responsive Design",
+    category: "Design",
+    icon: <LuSmartphone size={50} />,
+  },
 ];
 
 export default function About() {
@@ -50,7 +90,7 @@ export default function About() {
           observer.unobserve(el);
         }
       },
-      { threshold: 0.05 }
+      { threshold: 0.05 },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -81,23 +121,27 @@ export default function About() {
           <div className="space-y-4 text-foreground leading-relaxed">
             <p
               className={`text-lg transition-all duration-700 delay-200 ${
-                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                visible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-6"
               }`}
             >
               I&apos;m a Frontend Web Developer passionate about building
-              beautiful, responsive, and performant user interfaces. I specialize
-              in React and modern JavaScript ecosystems, turning complex designs
-              into seamless web experiences.
+              beautiful, responsive, and performant user interfaces. I
+              specialize in React and modern JavaScript ecosystems, turning
+              complex designs into seamless web experiences.
             </p>
             <p
               className={`text-lg transition-all duration-700 delay-400 ${
-                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                visible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-6"
               }`}
             >
               I focus on writing clean, maintainable code and staying up-to-date
-              with the latest frontend technologies. Every project I work on is an
-              opportunity to push the boundaries of what&apos;s possible in the
-              browser.
+              with the latest frontend technologies. Every project I work on is
+              an opportunity to push the boundaries of what&apos;s possible in
+              the browser.
             </p>
           </div>
 
@@ -105,13 +149,23 @@ export default function About() {
           <a
             href="/cv.pdf"
             download
-            className="relative inline-flex items-center gap-2 mt-8 px-6 py-3 border-2 border-border text-foreground rounded-lg font-semibold hover:border-primary hover:text-primary transition-all duration-300 cursor-pointer group overflow-hidden"
+            className="group relative inline-flex items-center gap-2 mt-8 px-8 py-3.5 bg-primary text-primary-foreground rounded-lg font-semibold overflow-hidden transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-primary/30"
           >
-            <span className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300 rounded-lg" />
-            <svg className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            <svg
+              className="w-4 h-4 relative z-10 transition-transform duration-300 group-hover:-translate-y-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
             </svg>
             <span className="relative z-10">Download CV</span>
+            <span className="absolute inset-0 bg-black/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </a>
         </div>
 
@@ -136,62 +190,20 @@ export default function About() {
             Technologies I work with on a daily basis.
           </p>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Frameworks & Languages",
-                items: techStack.filter(
-                  (t) =>
-                    t.category === "Framework" || t.category === "Language"
-                ),
-              },
-              {
-                title: "Styling & Animation",
-                items: techStack.filter(
-                  (t) =>
-                    t.category === "Styling" || t.category === "Animation"
-                ),
-              },
-              {
-                title: "Tools & Design",
-                items: techStack.filter(
-                  (t) => t.category === "Tool" || t.category === "Design"
-                ),
-              },
-            ].map((group, i) => (
-              <div
-                key={group.title}
-                className={`bg-card border border-border rounded-2xl p-6 hover:border-primary/30 transition-all duration-500 ${
-                  visible
-                    ? i === 0
-                      ? "animate-fade-in-left"
-                      : i === 2
-                        ? "animate-fade-in-right"
-                        : "animate-fade-in-up"
-                    : "opacity-0"
+          <div className="flex flex-wrap justify-center gap-5 max-w-4xl mx-auto">
+            {techStack.map((tech, i) => (
+              <span
+                key={tech.name}
+                className={`inline-flex items-center justify-center w-18 h-18 rounded-2xl bg-card hover:bg-card hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/5 hover:animate-wiggle transition-all duration-300 cursor-default ${
+                  visible ? "animate-fade-in-up" : "opacity-0"
                 }`}
-                style={{ animationDelay: visible ? `${600 + i * 150}ms` : "0ms" }}
+                style={{
+                  animationDelay: visible ? `${600 + i * 60}ms` : "0ms",
+                }}
+                title={tech.name}
               >
-                <h4
-                  className={`text-sm font-mono text-primary uppercase tracking-wider mb-4 pb-3 border-b border-border transition-all duration-500 ${
-                    visible ? "opacity-100" : "opacity-0"
-                  }`}
-                  style={{ animationDelay: visible ? `${700 + i * 150}ms` : "0ms" }}
-                >
-                  {group.title}
-                </h4>
-                <div className="flex flex-wrap gap-3">
-                  {group.items.map((tech) => (
-                    <span
-                      key={tech.name}
-                      className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-muted hover:bg-primary/10 hover:-translate-y-1 hover:animate-wiggle transition-all duration-200 cursor-default"
-                      title={tech.name}
-                    >
-                      {tech.icon}
-                    </span>
-                  ))}
-                </div>
-              </div>
+                {tech.icon}
+              </span>
             ))}
           </div>
         </div>

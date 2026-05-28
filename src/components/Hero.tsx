@@ -107,7 +107,7 @@ export default function Hero() {
         >
           <a
             href="#projects"
-            className="group relative px-8 py-3.5 bg-primary text-primary-foreground rounded-lg font-semibold overflow-hidden transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-primary/30 animate-pulse-soft hover:animate-none"
+            className="group relative px-8 py-3.5 bg-primary text-primary-foreground rounded-lg font-semibold overflow-hidden transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-primary/30"
           >
             <span className="relative z-10">View Projects</span>
             <span className="absolute inset-0 bg-black/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
