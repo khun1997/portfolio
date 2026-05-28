@@ -33,7 +33,7 @@ export default function ProjectGallery({ images, title }: Props) {
   return (
     <>
       {/* Main slider */}
-      <div className="bg-card border border-border rounded-2xl overflow-hidden mb-8 group relative">
+      <div className="bg-card border border-border rounded-2xl overflow-hidden mb-8 group relative hover:border-primary/30 hover:shadow-lg transition-all duration-500">
         <button
           onClick={() => setLightbox(true)}
           className="w-full aspect-video block cursor-pointer"
@@ -41,7 +41,10 @@ export default function ProjectGallery({ images, title }: Props) {
           <img
             src={images[current]}
             alt={`${title} screenshot ${current + 1}`}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-all duration-500"
+            style={{
+              animation: images.length > 1 ? "scaleIn 0.3s ease-out" : "none",
+            }}
           />
         </button>
 
@@ -57,7 +60,7 @@ export default function ProjectGallery({ images, title }: Props) {
           <>
             <button
               onClick={(e) => { e.stopPropagation(); prev(); }}
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 text-white flex items-center justify-center hover:bg-black/60 transition-all duration-200 opacity-0 group-hover:opacity-100"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 text-white flex items-center justify-center hover:bg-black/60 hover:scale-110 transition-all duration-200 opacity-0 group-hover:opacity-100"
               aria-label="Previous image"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -66,7 +69,7 @@ export default function ProjectGallery({ images, title }: Props) {
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); next(); }}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 text-white flex items-center justify-center hover:bg-black/60 transition-all duration-200 opacity-0 group-hover:opacity-100"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 text-white flex items-center justify-center hover:bg-black/60 hover:scale-110 transition-all duration-200 opacity-0 group-hover:opacity-100"
               aria-label="Next image"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -83,7 +86,7 @@ export default function ProjectGallery({ images, title }: Props) {
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
-                className={`rounded-full transition-all duration-300 ${
+                className={`rounded-full transition-all duration-300 hover:scale-125 ${
                   i === current
                     ? "w-5 h-2 bg-white"
                     : "w-2 h-2 bg-white/50 hover:bg-white/70"
@@ -98,12 +101,14 @@ export default function ProjectGallery({ images, title }: Props) {
       {/* Lightbox */}
       {lightbox && (
         <div
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 animate-fade-in"
           onClick={() => setLightbox(false)}
         >
+          {/* Lightbox content */}
+          <div className="relative animate-scale-in" onClick={(e) => e.stopPropagation()}>
           <button
             onClick={() => setLightbox(false)}
-            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors"
+            className="absolute -top-12 right-0 w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-200"
             aria-label="Close preview"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -115,7 +120,7 @@ export default function ProjectGallery({ images, title }: Props) {
             <>
               <button
                 onClick={(e) => { e.stopPropagation(); prev(); }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors"
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-200"
                 aria-label="Previous image"
               >
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -124,7 +129,7 @@ export default function ProjectGallery({ images, title }: Props) {
               </button>
               <button
                 onClick={(e) => { e.stopPropagation(); next(); }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors"
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-200"
                 aria-label="Next image"
               >
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -135,17 +140,18 @@ export default function ProjectGallery({ images, title }: Props) {
           )}
 
           <img
+            key={current}
             src={images[current]}
             alt={`${title} screenshot ${current + 1}`}
-            className="max-w-full max-h-full object-contain rounded-lg"
-            onClick={(e) => e.stopPropagation()}
+            className="max-w-full max-h-full object-contain rounded-lg animate-scale-in"
           />
 
           {images.length > 1 && (
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/60 text-sm font-mono">
+            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-white/60 text-sm font-mono">
               {current + 1} / {images.length}
             </div>
           )}
+          </div>
         </div>
       )}
     </>

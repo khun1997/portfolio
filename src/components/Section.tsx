@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useMemo } from "react";
 import AnimatedBg from "./AnimatedBg";
 
 interface SectionProps {
@@ -39,6 +39,8 @@ export default function Section({
     return () => observer.disconnect();
   }, []);
 
+  const titleWords = useMemo(() => title.split(" "), [title]);
+
   return (
     <section
       id={id}
@@ -54,22 +56,44 @@ export default function Section({
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4 tracking-tight">
-            {title}
+          <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4 tracking-tight overflow-hidden">
+            {titleWords.map((word, wi) => (
+              <span key={wi} className="inline-block mr-[0.3em] last:mr-0">
+                {word.split("").map((char, ci) => (
+                  <span
+                    key={ci}
+                    className={`inline-block ${
+                      visible ? "animate-letter-reveal" : "opacity-0"
+                    }`}
+                    style={{
+                      animationDelay: visible ? `${wi * 150 + ci * 40}ms` : "0ms",
+                    }}
+                  >
+                    {char === " " ? " " : char}
+                  </span>
+                ))}
+              </span>
+            ))}
           </h2>
           {subtitle && (
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p
+              className={`text-muted-foreground text-lg leading-relaxed transition-all duration-700 delay-500 ${
+                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+            >
               {subtitle}
             </p>
           )}
-          <div className="w-12 h-1.5 bg-primary rounded-full mt-6 mx-auto" />
+          <div
+            className={`w-12 h-1.5 bg-primary rounded-full mt-6 mx-auto transition-all duration-700 delay-700 ${
+              visible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+            }`}
+          />
         </div>
         <div
-          className={
-            visible
-              ? "animate-fade-in-up"
-              : "opacity-0"
-          }
+          className={`transition-all duration-700 delay-300 ${
+            visible ? "animate-fade-in-up" : "opacity-0"
+          }`}
         >
           {children}
         </div>

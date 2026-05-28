@@ -1,13 +1,21 @@
 "use client";
 
 import { useTheme } from "@/context/ThemeContext";
+import { useState } from "react";
 
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
+  const [spinning, setSpinning] = useState(false);
+
+  const handleToggle = () => {
+    setSpinning(true);
+    toggleTheme();
+    setTimeout(() => setSpinning(false), 500);
+  };
 
   return (
     <button
-      onClick={toggleTheme}
+      onClick={handleToggle}
       aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
       className="relative w-18 h-9 rounded-full bg-muted border-2 border-border cursor-pointer
         hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring
@@ -15,8 +23,9 @@ export default function ThemeToggle() {
     >
       <span
         className={`absolute top-0.5 left-0.5 w-7 h-7 rounded-full bg-primary shadow-md
-          flex items-center justify-center transition-transform duration-300
-          ${theme === "dark" ? "translate-x-9" : "translate-x-0"}`}
+          flex items-center justify-center transition-all duration-300
+          ${theme === "dark" ? "translate-x-9" : "translate-x-0"}
+          ${spinning ? "animate-wiggle" : ""}`}
       >
         {theme === "light" ? (
           <svg className="w-4 h-4 text-primary-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

@@ -73,15 +73,27 @@ export default function About() {
           <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4 tracking-tight">
             About Me
           </h2>
-          <div className="w-12 h-1.5 bg-primary rounded-full mb-8 mx-auto" />
+          <div
+            className={`w-12 h-1.5 bg-primary rounded-full mb-8 mx-auto transition-all duration-700 delay-300 ${
+              visible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+            }`}
+          />
           <div className="space-y-4 text-foreground leading-relaxed">
-            <p className="text-lg">
+            <p
+              className={`text-lg transition-all duration-700 delay-200 ${
+                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
+            >
               I&apos;m a Frontend Web Developer passionate about building
               beautiful, responsive, and performant user interfaces. I specialize
               in React and modern JavaScript ecosystems, turning complex designs
               into seamless web experiences.
             </p>
-            <p className="text-lg">
+            <p
+              className={`text-lg transition-all duration-700 delay-400 ${
+                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
+            >
               I focus on writing clean, maintainable code and staying up-to-date
               with the latest frontend technologies. Every project I work on is an
               opportunity to push the boundaries of what&apos;s possible in the
@@ -93,25 +105,34 @@ export default function About() {
           <a
             href="/cv.pdf"
             download
-            className="inline-flex items-center gap-2 mt-8 px-6 py-3 border-2 border-border text-foreground rounded-lg font-semibold hover:border-primary hover:text-primary transition-all duration-300 cursor-pointer"
+            className="relative inline-flex items-center gap-2 mt-8 px-6 py-3 border-2 border-border text-foreground rounded-lg font-semibold hover:border-primary hover:text-primary transition-all duration-300 cursor-pointer group overflow-hidden"
           >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <span className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300 rounded-lg" />
+            <svg className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
-            Download CV
+            <span className="relative z-10">Download CV</span>
           </a>
         </div>
 
         {/* Tech Stack */}
         <div
-          className={`transition-all duration-700 delay-200 ${
+          className={`transition-all duration-700 delay-300 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2 tracking-tight text-center">
+          <h3
+            className={`text-2xl md:text-3xl font-bold text-foreground mb-2 tracking-tight text-center transition-all duration-700 delay-400 ${
+              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
             Tech Stack
           </h3>
-          <p className="text-muted-foreground mb-10 text-center">
+          <p
+            className={`text-muted-foreground mb-10 text-center transition-all duration-700 delay-500 ${
+              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
             Technologies I work with on a daily basis.
           </p>
 
@@ -140,19 +161,30 @@ export default function About() {
             ].map((group, i) => (
               <div
                 key={group.title}
-                className={`bg-card border border-border rounded-2xl p-6 hover:border-primary/30 transition-all duration-300 ${
-                  visible ? "animate-fade-in-up" : "opacity-0"
+                className={`bg-card border border-border rounded-2xl p-6 hover:border-primary/30 transition-all duration-500 ${
+                  visible
+                    ? i === 0
+                      ? "animate-fade-in-left"
+                      : i === 2
+                        ? "animate-fade-in-right"
+                        : "animate-fade-in-up"
+                    : "opacity-0"
                 }`}
-                style={{ animationDelay: visible ? `${i * 150}ms` : "0ms" }}
+                style={{ animationDelay: visible ? `${600 + i * 150}ms` : "0ms" }}
               >
-                <h4 className="text-sm font-mono text-primary uppercase tracking-wider mb-4 pb-3 border-b border-border">
+                <h4
+                  className={`text-sm font-mono text-primary uppercase tracking-wider mb-4 pb-3 border-b border-border transition-all duration-500 ${
+                    visible ? "opacity-100" : "opacity-0"
+                  }`}
+                  style={{ animationDelay: visible ? `${700 + i * 150}ms` : "0ms" }}
+                >
                   {group.title}
                 </h4>
                 <div className="flex flex-wrap gap-3">
                   {group.items.map((tech) => (
                     <span
                       key={tech.name}
-                      className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-muted hover:bg-primary/10 hover:-translate-y-1 transition-all duration-200 cursor-default"
+                      className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-muted hover:bg-primary/10 hover:-translate-y-1 hover:animate-wiggle transition-all duration-200 cursor-default"
                       title={tech.name}
                     >
                       {tech.icon}

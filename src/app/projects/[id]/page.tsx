@@ -23,7 +23,7 @@ export default async function ProjectPage({ params }: Props) {
         {/* Back link */}
         <Link
           href="/#projects"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-6 group"
+          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-6 group animate-fade-in-up"
         >
           <svg
             className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1"
@@ -38,24 +38,26 @@ export default async function ProjectPage({ params }: Props) {
         </Link>
 
         {/* Image gallery slider */}
-        <ProjectGallery images={project.images} title={project.title} />
+        <div className="animate-fade-in-up" style={{ animationDelay: "100ms" }}>
+          <ProjectGallery images={project.images} title={project.title} />
+        </div>
 
         {/* Project info */}
         <div className="max-w-3xl">
-          <span className="text-xs font-mono text-primary uppercase tracking-wider">
+          <span className="text-xs font-mono text-primary uppercase tracking-wider animate-fade-in-up" style={{ animationDelay: "200ms" }}>
             {project.category}
           </span>
 
-          <h1 className="text-3xl md:text-4xl font-black text-foreground mt-2 mb-4">
+          <h1 className="text-3xl md:text-4xl font-black text-foreground mt-2 mb-4 animate-fade-in-up" style={{ animationDelay: "250ms" }}>
             {project.title}
           </h1>
 
-          <p className="text-muted-foreground leading-relaxed mb-8">
+          <p className="text-muted-foreground leading-relaxed mb-8 animate-fade-in-up" style={{ animationDelay: "300ms" }}>
             {project.longDescription}
           </p>
 
           {/* Tech stack */}
-          <div className="mb-10">
+          <div className="mb-10 animate-fade-in-up" style={{ animationDelay: "350ms" }}>
             <h2 className="text-xs font-semibold text-foreground mb-3 uppercase tracking-widest">
               Technologies
             </h2>
@@ -63,7 +65,7 @@ export default async function ProjectPage({ params }: Props) {
               {project.tech.map((t) => (
                 <span
                   key={t}
-                  className="text-xs px-3 py-1.5 rounded-lg bg-primary/10 text-primary font-mono"
+                  className="text-xs px-3 py-1.5 rounded-lg bg-primary/10 text-primary font-mono hover:bg-primary hover:text-primary-foreground transition-all duration-200 hover:scale-105"
                 >
                   {t}
                 </span>
@@ -72,13 +74,13 @@ export default async function ProjectPage({ params }: Props) {
           </div>
 
           {/* What I Built */}
-          <div className="mb-10">
+          <div className="mb-10 animate-fade-in-up" style={{ animationDelay: "400ms" }}>
             <h2 className="text-lg font-bold text-foreground mb-4">
               What I Built
             </h2>
             <ul className="space-y-3">
               {project.tasks.map((task, i) => (
-                <li key={i} className="flex items-start gap-3 text-muted-foreground">
+                <li key={i} className="flex items-start gap-3 text-muted-foreground animate-fade-in-left" style={{ animationDelay: `${450 + i * 50}ms` }}>
                   <svg
                     className="w-5 h-5 text-primary mt-0.5 shrink-0"
                     fill="none"
@@ -95,11 +97,11 @@ export default async function ProjectPage({ params }: Props) {
           </div>
 
           {/* Action buttons */}
-          <div className="flex gap-4 pt-6 border-t border-border">
+          <div className="flex gap-4 pt-6 border-t border-border animate-fade-in-up" style={{ animationDelay: "500ms" }}>
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
-                className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-primary-foreground rounded-lg text-sm font-semibold hover:opacity-90 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-primary-foreground rounded-lg text-sm font-semibold hover:opacity-90 transition-all duration-200 hover:shadow-lg hover:shadow-primary/25 hover:scale-105 active:scale-95"
               >
                 <svg
                   className="w-4 h-4"
@@ -120,10 +122,11 @@ export default async function ProjectPage({ params }: Props) {
             {project.repoUrl && (
               <a
                 href={project.repoUrl}
-                className="inline-flex items-center gap-2 px-6 py-2.5 border-2 border-border text-foreground rounded-lg text-sm font-semibold hover:border-primary hover:text-primary transition-all duration-200"
+                className="group inline-flex items-center gap-2 px-6 py-2.5 border-2 border-border text-foreground rounded-lg text-sm font-semibold hover:border-primary hover:text-primary transition-all duration-200 hover:scale-105 active:scale-95 relative overflow-hidden"
               >
+                <span className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300 rounded-lg" />
                 <svg
-                  className="w-4 h-4"
+                  className="w-4 h-4 relative z-10"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -135,7 +138,7 @@ export default async function ProjectPage({ params }: Props) {
                     d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
                   />
                 </svg>
-                View Code
+                <span className="relative z-10">View Code</span>
               </a>
             )}
           </div>

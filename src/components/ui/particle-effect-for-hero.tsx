@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { MousePointer2 } from 'lucide-react';
+import React, { useEffect, useRef, useState, useCallback } from "react";
+import { MousePointer2 } from "lucide-react";
 
 // --- Types ---
 
@@ -37,22 +37,25 @@ const PARTICLE_DENSITY = 0.00015;
 const BG_PARTICLE_DENSITY = 0.00005;
 const MOUSE_RADIUS = 180;
 const RETURN_SPEED = 0.08;
-const DAMPING = 0.90;
+const DAMPING = 0.9;
 const REPULSION_STRENGTH = 1.2;
 
 // --- Helper Functions ---
 
-const randomRange = (min: number, max: number) => Math.random() * (max - min) + min;
+const randomRange = (min: number, max: number) =>
+  Math.random() * (max - min) + min;
 
 const getCSSVar = (name: string, fallback: string): string => {
-  if (typeof document === 'undefined') return fallback;
-  const val = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  if (typeof document === "undefined") return fallback;
+  const val = getComputedStyle(document.documentElement)
+    .getPropertyValue(name)
+    .trim();
   return val || fallback;
 };
 
 // Returns just the hex digits without #
 const getHex = (name: string, fallback: string): string => {
-  return getCSSVar(name, fallback).replace('#', '');
+  return getCSSVar(name, fallback).replace("#", "");
 };
 
 // --- Components ---
@@ -69,7 +72,7 @@ const AntiGravityCanvas: React.FC = () => {
   const lastTimeRef = useRef<number>(0);
 
   const initParticles = useCallback((width: number, height: number) => {
-    const primaryColor = `#${getHex('--primary', '4f46e5')}`;
+    const primaryColor = `#${getHex("--primary", "4f46e5")}`;
 
     const particleCount = Math.floor(width * height * PARTICLE_DENSITY);
     const newParticles: Particle[] = [];
@@ -79,9 +82,14 @@ const AntiGravityCanvas: React.FC = () => {
       const y = Math.random() * height;
 
       newParticles.push({
-        x, y, originX: x, originY: y, vx: 0, vy: 0,
+        x,
+        y,
+        originX: x,
+        originY: y,
+        vx: 0,
+        vy: 0,
         size: randomRange(1, 2.5),
-        color: Math.random() > 0.85 ? primaryColor : '#ffffff',
+        color: Math.random() > 0.85 ? primaryColor : "#ffffff",
         angle: Math.random() * Math.PI * 2,
       });
     }
@@ -103,19 +111,19 @@ const AntiGravityCanvas: React.FC = () => {
     }
     backgroundParticlesRef.current = newBgParticles;
 
-    setDebugInfo(prev => ({ ...prev, count: particleCount + bgCount }));
+    setDebugInfo((prev) => ({ ...prev, count: particleCount + bgCount }));
   }, []);
 
   const animate = useCallback((time: number) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const delta = time - lastTimeRef.current;
     lastTimeRef.current = time;
     if (delta > 0) {
-      setDebugInfo(prev => ({ ...prev, fps: Math.round(1000 / delta) }));
+      setDebugInfo((prev) => ({ ...prev, fps: Math.round(1000 / delta) }));
     }
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -126,16 +134,20 @@ const AntiGravityCanvas: React.FC = () => {
     const pulseSpeed = 0.0008;
     const pulseOpacity = Math.sin(time * pulseSpeed) * 0.035 + 0.085;
 
-    const primaryHex = getHex('--primary', '4f46e5');
-    const r = parseInt(primaryHex.slice(0,2), 16);
-    const g = parseInt(primaryHex.slice(2,4), 16);
-    const b = parseInt(primaryHex.slice(4,6), 16);
+    const primaryHex = getHex("--primary", "4f46e5");
+    const r = parseInt(primaryHex.slice(0, 2), 16);
+    const g = parseInt(primaryHex.slice(2, 4), 16);
+    const b = parseInt(primaryHex.slice(4, 6), 16);
     const gradient = ctx.createRadialGradient(
-      centerX, centerY, 0,
-      centerX, centerY, Math.max(canvas.width, canvas.height) * 0.7
+      centerX,
+      centerY,
+      0,
+      centerX,
+      centerY,
+      Math.max(canvas.width, canvas.height) * 0.7,
     );
     gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${pulseOpacity})`);
-    gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
 
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -218,7 +230,8 @@ const AntiGravityCanvas: React.FC = () => {
               const m1 = p1.size;
               const m2 = p2.size;
               const restitution = 0.85;
-              const impulseMagnitude = (-(1 + restitution) * velocityAlongNormal) / (1/m1 + 1/m2);
+              const impulseMagnitude =
+                (-(1 + restitution) * velocityAlongNormal) / (1 / m1 + 1 / m2);
               p1.vx += (impulseMagnitude * nx) / m1;
               p1.vy += (impulseMagnitude * ny) / m1;
               p2.vx -= (impulseMagnitude * nx) / m2;
@@ -241,9 +254,8 @@ const AntiGravityCanvas: React.FC = () => {
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
       const velocity = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
       const opacity = Math.min(0.3 + velocity * 0.1, 1);
-      ctx.fillStyle = p.color === '#ffffff'
-        ? `rgba(255, 255, 255, ${opacity})`
-        : p.color;
+      ctx.fillStyle =
+        p.color === "#ffffff" ? `rgba(255, 255, 255, ${opacity})` : p.color;
       ctx.fill();
     }
 
@@ -259,15 +271,15 @@ const AntiGravityCanvas: React.FC = () => {
         canvasRef.current.height = height * dpr;
         canvasRef.current.style.width = `${width}px`;
         canvasRef.current.style.height = `${height}px`;
-        const ctx = canvasRef.current.getContext('2d');
+        const ctx = canvasRef.current.getContext("2d");
         if (ctx) ctx.scale(dpr, dpr);
         initParticles(width, height);
       }
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize();
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [initParticles]);
 
   useEffect(() => {
@@ -315,10 +327,10 @@ export default function ParticleHero() {
       <AntiGravityCanvas />
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground/30 animate-pulse pointer-events-none">
+      {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground/30 animate-pulse pointer-events-none">
         <span className="text-[10px] uppercase tracking-[0.2em]">Interact</span>
         <MousePointer2 size={16} />
-      </div>
+      </div> */}
     </div>
   );
 }

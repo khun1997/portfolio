@@ -30,25 +30,28 @@ export default function Projects() {
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`px-5 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer ${
+            className={`relative px-5 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer overflow-hidden ${
               activeCategory === cat
                 ? "bg-primary text-primary-foreground shadow-md shadow-primary/25"
                 : "bg-muted text-muted-foreground hover:text-foreground"
             }`}
           >
+            {activeCategory === cat && (
+              <span className="absolute inset-0 bg-white/10 animate-fade-in" />
+            )}
             {cat}
           </button>
         ))}
       </div>
 
       {/* Project cards grid */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div key={activeCategory} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map((project, index) => (
           <Link
             key={project.id}
             href={`/projects/${project.id}`}
             className="group block bg-card border border-border rounded-xl overflow-hidden
-              hover:border-primary hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1
+              hover:border-primary hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2
               transition-all duration-500 animate-fade-in-up
               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             style={{ animationDelay: `${index * 80}ms` }}
@@ -58,16 +61,18 @@ export default function Projects() {
               <img
                 src={project.imageUrl}
                 alt={project.title}
-                className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-card/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-linear-to-t from-card/80 via-card/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-linear-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
 
             {/* Card body */}
             <div className="p-5">
-              <span className="text-xs font-mono text-primary uppercase tracking-wider">
+              <span className="relative text-xs font-mono text-primary uppercase tracking-wider inline-block">
                 {project.category}
+                <span className="absolute -bottom-0.5 left-0 w-full h-px bg-primary/30 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
               </span>
               <h3 className="text-lg font-bold text-card-foreground group-hover:text-primary transition-colors mt-1 mb-2">
                 {project.title}
@@ -79,7 +84,7 @@ export default function Projects() {
                 {project.tech.slice(0, 3).map((t) => (
                   <span
                     key={t}
-                    className="text-xs px-2 py-1 rounded-md bg-primary/10 text-primary font-mono font-medium"
+                    className="text-xs px-2 py-1 rounded-md bg-primary/10 text-primary font-mono font-medium transition-all duration-200 hover:bg-primary hover:text-primary-foreground hover:scale-105"
                   >
                     {t}
                   </span>
