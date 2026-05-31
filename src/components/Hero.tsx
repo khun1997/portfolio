@@ -14,7 +14,7 @@ export default function Hero() {
 
   return (
     <section
-      id="hero"
+      id="home"
       className="relative min-h-screen flex items-center justify-center px-4 pt-24 bg-background overflow-hidden"
     >
       {/* Animated background */}
