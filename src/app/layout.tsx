@@ -21,8 +21,11 @@ export const metadata: Metadata = {
   title: "Khun Ye Aung | Frontend Developer Portfolio",
   description:
     "Frontend web developer portfolio showcasing projects built with Next.js, React, TypeScript, and modern web technologies.",
+  manifest: "/manifest.json",
+  themeColor: "#d97706",
   icons: {
     icon: "/favicon.svg",
+    apple: "/icon-192.svg",
   },
 };
 
@@ -45,6 +48,17 @@ export default function RootLayout({
                   }
                 } catch(e) {}
               })();
+            `,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js');
+                });
+              }
             `,
           }}
         />
