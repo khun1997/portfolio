@@ -1,15 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
-  { href: "/#home", label: "Home" },
-  { href: "/#about", label: "About" },
-  { href: "/#projects", label: "Projects" },
-  { href: "/#contact", label: "Contact" },
+  { href: "#home", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#projects", label: "Projects" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -40,6 +39,15 @@ export default function Navbar() {
     setMenuOpen(false);
   }, [pathname]);
 
+  const handleNavClick = (sectionId: string) => {
+    setActive(sectionId);
+    setMenuOpen(false);
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -49,7 +57,7 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 h-14 sm:h-16 flex items-center justify-between">
-        <Link
+        <a
           href="/"
           className="group text-foreground hover:text-primary transition-colors"
           aria-label="Home"
@@ -60,14 +68,12 @@ export default function Navbar() {
             xmlns="http://www.w3.org/2000/svg"
             className="w-7 sm:w-8 h-auto group-hover:animate-wiggle origin-center"
           >
-            {/* K - vertical stem */}
             <path
               d="M5 4v24"
               stroke="currentColor"
               strokeWidth="5"
               strokeLinecap="round"
             />
-            {/* K - upper diagonal */}
             <path
               d="M5.5 17.5L16 6"
               className="text-primary"
@@ -75,7 +81,6 @@ export default function Navbar() {
               strokeWidth="4.5"
               strokeLinecap="round"
             />
-            {/* K - lower diagonal */}
             <path
               d="M5.5 17.5L16 28"
               className="text-primary"
@@ -83,37 +88,27 @@ export default function Navbar() {
               strokeWidth="4.5"
               strokeLinecap="round"
             />
-            {/* Y - left arm */}
             <path
               d="M24 8l8 9"
               stroke="currentColor"
               strokeWidth="4"
               strokeLinecap="round"
             />
-            {/* Y - right arm */}
             <path
               d="M40 8l-8 9"
               stroke="currentColor"
               strokeWidth="4"
               strokeLinecap="round"
             />
-            {/* Y - stem */}
             <path
               d="M32 17v11"
               stroke="currentColor"
               strokeWidth="4"
               strokeLinecap="round"
             />
-            {/* Accent dot */}
-            <circle
-              cx="41"
-              cy="5.5"
-              r="2"
-              className="text-primary"
-              fill="currentColor"
-            />
+            <circle cx="41" cy="5.5" r="2" className="text-primary" fill="currentColor" />
           </svg>
-        </Link>
+        </a>
 
         <div className="flex items-center gap-2 sm:gap-4">
           {/* Desktop nav */}
@@ -122,9 +117,8 @@ export default function Navbar() {
               const sectionId = link.href.split("#")[1];
               return (
                 <li key={link.href} className="group">
-                  <Link
-                    href={link.href}
-                    onClick={() => setActive(sectionId)}
+                  <button
+                    onClick={() => handleNavClick(sectionId)}
                     className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 overflow-hidden ${
                       pathname === "/" && active === sectionId
                         ? "text-primary "
@@ -139,7 +133,7 @@ export default function Navbar() {
                           : "scale-x-0 group-hover:scale-x-100"
                       }`}
                     />
-                  </Link>
+                  </button>
                 </li>
               );
             })}
@@ -183,20 +177,16 @@ export default function Navbar() {
             const sectionId = link.href.split("#")[1];
             return (
               <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => {
-                    setActive(sectionId);
-                    setMenuOpen(false);
-                  }}
-                  className={`block px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
+                <button
+                  onClick={() => handleNavClick(sectionId)}
+                  className={`block w-full text-left px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
                     pathname === "/" && active === sectionId
                       ? "text-primary bg-primary/10"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                   }`}
                 >
                   {link.label}
-                </Link>
+                </button>
               </li>
             );
           })}
