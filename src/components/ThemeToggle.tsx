@@ -17,10 +17,9 @@ export default function ThemeToggle() {
     <button
       onClick={handleToggle}
       aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-      className="relative w-14 sm:w-18 h-7 sm:h-9 rounded-full cursor-pointer
-        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring
+      className="relative w-14 sm:w-18 h-7 sm:h-9 rounded-full bg-muted border-2  border-primary cursor-pointer
+        hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring
         transition-all duration-300 shrink-0"
-      style={{ background: "transparent", border: "none" }}
     >
       <span
         className={`absolute top-0.5 left-0.5 w-5 sm:w-7 h-5 sm:h-7 rounded-full bg-primary shadow-md
