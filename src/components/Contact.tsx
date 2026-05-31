@@ -14,27 +14,27 @@ import Section from "./Section";
 const socialLinks = [
   {
     label: "Facebook",
-    href: "#",
+    href: "https://www.facebook.com/khun.yair.75/",
     icon: <FaFacebook size={32} style={{ color: "#1877F2" }} />,
   },
   {
     label: "LinkedIn",
-    href: "#",
+    href: "https://www.linkedin.com/in/khun-ye-aung-29a230238/?skipRedirect=true",
     icon: <FaLinkedin size={32} style={{ color: "#0A66C2" }} />,
   },
   {
     label: "Telegram",
-    href: "#",
+    href: "https://t.me/CasperKhun",
     icon: <FaTelegram size={32} style={{ color: "#26A5E4" }} />,
   },
   {
     label: "Line",
-    href: "#",
+    href: "https://line.me/ti/p/MekXtB-YFn",
     icon: <SiLine size={32} style={{ color: "#00C300" }} />,
   },
   {
     label: "WhatsApp",
-    href: "#",
+    href: "https://wa.me/66889001813?text=Hello%20Casper!%20I'm%20interested%20in%20your%20services.",
     icon: <FaWhatsapp size={32} style={{ color: "#25D366" }} />,
   },
 ];
@@ -64,7 +64,7 @@ export default function Contact() {
 
       toast.success("Message sent!", {
         description: "Thanks! I'll get back to you soon.",
-        duration: Infinity,
+        duration: 5000,
         style: {
           background: "var(--primary)",
           color: "var(--primary-foreground)",
@@ -216,6 +216,7 @@ export default function Contact() {
               key={link.label}
               href={link.href}
               target="_blank"
+              rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-all duration-200 hover:-translate-y-1 hover:scale-110 animate-fade-in-up"
               style={{ animationDelay: `${700 + i * 100}ms` }}
               aria-label={link.label}
