@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "sonner";
 import {
   FaFacebook,
   FaLinkedin,
@@ -42,13 +43,11 @@ export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [errorMsg, setErrorMsg] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    setStatus("loading");
-    setErrorMsg("");
+    setLoading(true);
 
     try {
       const res = await fetch("/api/contact", {
@@ -63,13 +62,31 @@ export default function Contact() {
         throw new Error(data.error || "Failed to send message.");
       }
 
-      setStatus("success");
+      toast.success("Message sent!", {
+        description: "Thanks! I'll get back to you soon.",
+        duration: Infinity,
+        style: {
+          background: "var(--primary)",
+          color: "var(--primary-foreground)",
+          fontWeight: 700,
+          borderLeft: "4px solid var(--primary)",
+        },
+      });
       setName("");
       setEmail("");
       setMessage("");
     } catch (err) {
-      setStatus("error");
-      setErrorMsg(err instanceof Error ? err.message : "Something went wrong.");
+      toast.error("Something went wrong", {
+        description:
+          err instanceof Error ? err.message : "Please try again later.",
+        style: {
+          background: "var(--destructive)",
+          color: "#f5f5f5",
+          borderLeft: "4px solid var(--destructive)",
+        },
+      });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -85,8 +102,14 @@ export default function Contact() {
           className="bg-card border border-border rounded-2xl p-8 md:p-10 space-y-5 animate-fade-in-up hover:border-primary/30 transition-all duration-500"
         >
           <div className="grid sm:grid-cols-2 gap-5">
-            <div className="animate-fade-in-up" style={{ animationDelay: "200ms" }}>
-              <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1.5">
+            <div
+              className="animate-fade-in-up"
+              style={{ animationDelay: "200ms" }}
+            >
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-foreground mb-1.5"
+              >
                 Name
               </label>
               <input
@@ -95,13 +118,19 @@ export default function Contact() {
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                disabled={status === "loading"}
+                disabled={loading}
                 className="w-full px-4 py-2.5 rounded-lg bg-muted border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 disabled:opacity-50"
                 placeholder="Your name"
               />
             </div>
-            <div className="animate-fade-in-up" style={{ animationDelay: "300ms" }}>
-              <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1.5">
+            <div
+              className="animate-fade-in-up"
+              style={{ animationDelay: "300ms" }}
+            >
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-foreground mb-1.5"
+              >
                 Email
               </label>
               <input
@@ -110,15 +139,21 @@ export default function Contact() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                disabled={status === "loading"}
+                disabled={loading}
                 className="w-full px-4 py-2.5 rounded-lg bg-muted border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 disabled:opacity-50"
                 placeholder="your@email.com"
               />
             </div>
           </div>
 
-          <div className="animate-fade-in-up" style={{ animationDelay: "400ms" }}>
-            <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1.5">
+          <div
+            className="animate-fade-in-up"
+            style={{ animationDelay: "400ms" }}
+          >
+            <label
+              htmlFor="message"
+              className="block text-sm font-medium text-foreground mb-1.5"
+            >
               Message
             </label>
             <textarea
@@ -127,29 +162,45 @@ export default function Contact() {
               rows={5}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              disabled={status === "loading"}
+              disabled={loading}
               className="w-full px-4 py-2.5 rounded-lg bg-muted border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 resize-none disabled:opacity-50"
               placeholder="Tell me about your project..."
             />
           </div>
 
-          <div className="animate-fade-in-up" style={{ animationDelay: "500ms" }}>
+          <div
+            className="animate-fade-in-up"
+            style={{ animationDelay: "500ms" }}
+          >
             <button
               type="submit"
-              disabled={status === "loading"}
+              disabled={loading}
               className="group relative w-full py-3 bg-primary text-primary-foreground rounded-lg font-semibold overflow-hidden transition-all duration-300 shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:scale-[1.02] active:scale-[0.98] cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
             >
               <span className="relative z-10 inline-flex items-center gap-2">
-                {status === "loading" ? (
+                {loading ? (
                   <>
-                    <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                    <svg
+                      className="animate-spin h-4 w-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                      />
                     </svg>
                     Sending...
                   </>
-                ) : status === "success" ? (
-                  <>Message sent!</>
                 ) : (
                   "Send Message"
                 )}
@@ -157,22 +208,6 @@ export default function Contact() {
               <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             </button>
           </div>
-
-          {status === "error" && (
-            <p className="text-sm text-destructive text-center animate-fade-in">
-              {errorMsg}
-            </p>
-          )}
-          {status === "success" && (
-            <p className="text-xs text-muted-foreground text-center animate-fade-in">
-              Thanks! I&apos;ll get back to you soon.
-            </p>
-          )}
-          {status === "idle" && (
-            <p className="text-xs text-muted-foreground text-center animate-fade-in" style={{ animationDelay: "600ms" }}>
-              Your message will be sent via Resend.
-            </p>
-          )}
         </form>
 
         <div className="mt-6 pt-6 border-t border-border flex justify-center gap-6 sm:gap-8 flex-wrap">
@@ -180,6 +215,7 @@ export default function Contact() {
             <a
               key={link.label}
               href={link.href}
+              target="_blank"
               className="text-muted-foreground hover:text-primary transition-all duration-200 hover:-translate-y-1 hover:scale-110 animate-fade-in-up"
               style={{ animationDelay: `${700 + i * 100}ms` }}
               aria-label={link.label}

@@ -291,6 +291,13 @@ body {
   color: var(--primary-foreground);
 }
 
+/* Make toast description text match title color and weight */
+[data-sonner-toast][data-type="error"] [data-description],
+[data-sonner-toast][data-type="success"] [data-description] {
+  color: inherit !important;
+  font-weight: inherit !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
