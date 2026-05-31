@@ -22,11 +22,14 @@ export const metadata: Metadata = {
   description:
     "Frontend web developer portfolio showcasing projects built with Next.js, React, TypeScript, and modern web technologies.",
   manifest: "/manifest.json",
-  themeColor: "#d97706",
   icons: {
     icon: "/favicon.svg",
     apple: "/icon-192.png",
   },
+};
+
+export const viewport = {
+  themeColor: "#d97706",
 };
 
 export default function RootLayout({
