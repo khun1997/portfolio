@@ -1,13 +1,37 @@
 "use client";
 
 import { useEffect, useState, useMemo } from "react";
+import { useShaderBackground } from "@/components/ui/animated-shader-hero";
 import AnimatedBg from "./AnimatedBg";
+
+function ShaderBg() {
+  const canvasRef = useShaderBackground();
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full object-contain"
+      style={{ background: "black" }}
+      aria-hidden="true"
+    />
+  );
+}
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     setMounted(true);
+    setIsDark(document.documentElement.classList.contains("dark"));
+
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+    return () => observer.disconnect();
   }, []);
 
   const nameLetters = useMemo(() => "Khun Ye Aung".split(""), []);
@@ -15,10 +39,10 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center px-4 pt-24 bg-background overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center px-4 pt-24 overflow-hidden"
     >
-      {/* Animated background */}
-      <AnimatedBg variant="amber" />
+      {/* Background: shader in dark mode, AnimatedBg in light mode */}
+      {mounted && (isDark ? <ShaderBg /> : <AnimatedBg variant="amber" />)}
 
       {/* Floating decorative elements */}
       <div
@@ -118,7 +142,7 @@ export default function Hero() {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 border-2 border-border text-foreground rounded-lg font-semibold overflow-hidden transition-all duration-300 cursor-pointer hover:border-primary hover:text-primary text-sm sm:text-base"
+            className="group relative inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 border-2 border-primary text-foreground rounded-lg font-semibold overflow-hidden transition-all duration-300 cursor-pointer hover:border-primary hover:text-primary text-sm sm:text-base"
           >
             <svg
               className="w-3.5 h-3.5 sm:w-4 sm:h-4 relative z-10"
@@ -138,18 +162,6 @@ export default function Hero() {
           </a>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      {/* <div
-        className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-all duration-1000 delay-1000 ${
-          mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-        }`}
-      >
-        <div className="flex flex-col items-center gap-2 text-muted-foreground/50">
-          <span className="text-xs font-mono tracking-widest uppercase">Scroll</span>
-          <div className="w-px h-8 bg-linear-to-b from-muted-foreground/50 to-transparent animate-fade-in" />
-        </div>
-      </div> */}
     </section>
   );
 }
