@@ -4,8 +4,8 @@ const STATIC_ASSETS = [
   "/",
   "/favicon.svg",
   "/manifest.json",
-  "/icon-192.svg",
-  "/icon-512.svg",
+  "/icon-192.png",
+  "/icon-512.png",
   "/resume.pdf",
 ];
 
